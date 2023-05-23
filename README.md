@@ -4,7 +4,7 @@ This course was created from [this GitHub template](https://github.com/jhudsl/OT
 
 This course was created with Bookdown and introduces best practices and tools for neoantigen identification.
 
-You can see the [bookdown rendered course material here (GitHub pages site)](https://griffithlab.github.io/pVACtools_Intro_Course/). 
+You can see the [bookdown rendered course material here (GitHub pages site)](https://griffithlab.github.io/pVACtools_Intro_Course/) or the [leanpub rendered version here](https://leanpub.com/c/intropvac). 
 
 ## About this course
 
