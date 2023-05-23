@@ -10,7 +10,7 @@ These credits are based on [course contributors guidelines described here](https
 |-------|-----|
 |**Pedagogy**||
 |Lead Content Instructor(s)|[Malachi Griffith], [Obi Griffith]|
-|Lecturer(s)| Susanna Kiwala|
+|Lecturer(s)| Malachi Griffith, Susanna Kiwala|
 |Content Author(s) | Susanna Kiwala|
 |Content Contributor(s) | Huiming Xia|
 |Content Editor(s)/Reviewer(s) | Malachi Griffith|
