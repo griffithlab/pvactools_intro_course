@@ -12,7 +12,7 @@ Identification of neoantigens is a critical step in predicting response to check
 
 ## Target Audience  
 
-The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design or neoantigen prioritization using pVACtools.
+The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design and neoantigen prioritization using pVACtools.
 
 ## Curriculum  
 
