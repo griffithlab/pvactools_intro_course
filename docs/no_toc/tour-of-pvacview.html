@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to pVACtools</title>
+  <title>Chapter 3 Tour of pVACview | Introduction to pVACtools</title>
   <meta name="description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to pVACtools" />
+  <meta property="og:title" content="Chapter 3 Tour of pVACview | Introduction to pVACtools" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to pVACtools" />
+  <meta name="twitter:title" content="Chapter 3 Tour of pVACview | Introduction to pVACtools" />
   
   <meta name="twitter:description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/ITN_favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="introduction.html"/>
+<link rel="prev" href="running-pvactools.html"/>
+<link rel="next" href="conclusions.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -159,14 +159,28 @@ div.csl-indent {
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/itcr_main_image.png">
 </div>
-<div id="header">
-<h1 class="title">Introduction to pVACtools</h1>
-<p class="date"><em>May, 2023</em></p>
+<div id="tour-of-pvacview" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Tour of pVACview</h1>
+<div id="learning-objectives-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Learning Objectives</h2>
+<p>This chapter will cover:</p>
+<ul>
+<li>Introduction to the pVACview module</li>
+<li>Demo of the pVACview interface</li>
+</ul>
 </div>
-<div id="about-this-course" class="section level1 unnumbered">
-<h1>About this Course</h1>
-<p>This course is part of a series of courses for the <a href="https://itcr.cancer.gov/">Informatics Technology for Cancer Research (ITCR)</a> called the Informatics Technology for Cancer Research Education Resource. This material was created by the ITCR funded <a href="https://pvactools.org">pVACtools resource</a>. This initiative is funded by the following grant: <a href="https://www.cancer.gov/">National Cancer Institute (NCI)</a> U01CA248235.</p>
+<div id="introduction-to-the-pvacview-module" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Introduction to the pVACview module</h2>
+<p>pVACview is a R shiny based tool designed to aid specifically in the prioritization and selection of neoantigen candidates for personalized cancer vaccines. It takes as inputs a pVACseq output aggregate report file (tsv format) and a corresponding pVACseq output metrics file (json). pVACview allows the user to launch an R shiny application to load and visualize the given neoantigen candidates with detailed information including that of the genomic variant, transcripts covering the variant, and good-binding peptides predicted from the respective transcripts. It also incorporates anchor prediction data for a range of class I HLA alleles and peptides ranging from 8 to 11-mers. By taking all levels of information into account for the neoantigen candidates, clinicians will be able to make more informed decisions when deciding final peptide candidates for personalized cancer vaccines.</p>
+<p><img src="resources/images/03-pvacview_tour_files/figure-html/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y_g2491f283519_0_8.png" title="Upon successfully uploading the relevant data files, you can explore the different aspects of your neoantigen candidates." alt="Upon successfully uploading the relevant data files, you can explore the different aspects of your neoantigen candidates." width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tour-of-the-pvacview-interface" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Tour of the pVACview interface</h2>
+<p>Here is a brief tour of the <a href="https://pvactools.readthedocs.io/en/latest/pvacview.html" target="_blank">pVACview</a> interface:</p>
+<iframe src="https://www.youtube.com/embed/SMcXSV1cp1U" width="672" height="400px">
+</iframe>
 
+</div>
 </div>
 <hr>
 <center> 
@@ -181,8 +195,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="running-pvactools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
