@@ -16,7 +16,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 
 ## Target Audience  
 
-The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design or neoantigen prioritization using pVACtools.
+The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design and neoantigen prioritization using pVACtools.
 
 ## Curriculum  
 
