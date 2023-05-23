@@ -26,6 +26,7 @@ NCI
 NHGRI
 ottrpal
 Pandoc
+pVACtools
 UE
 UE5
 reproducibility
