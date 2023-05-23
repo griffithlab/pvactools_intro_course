@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Introduction | Introduction to pVACtools</title>
+  <meta name="description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Introduction | Introduction to pVACtools" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Introduction | Introduction to pVACtools" />
+  
+  <meta name="twitter:description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/ITN_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="index.html"/>
+<link rel="next" href="running-pvactools.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style_ITN.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.itcrtraining.org/"><img src="assets/ITN_logo.png" style="padding-left: 15px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#target-audience"><i class="fa fa-check"></i><b>1.2</b> Target Audience</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#curriculum"><i class="fa fa-check"></i><b>1.3</b> Curriculum</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="running-pvactools.html"><a href="running-pvactools.html"><i class="fa fa-check"></i><b>2</b> Running pVACtools</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="running-pvactools.html"><a href="running-pvactools.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="running-pvactools.html"><a href="running-pvactools.html#installation-of-pvactools"><i class="fa fa-check"></i><b>2.2</b> Installation of pVACtools</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="running-pvactools.html"><a href="running-pvactools.html#using-docker"><i class="fa fa-check"></i><b>2.2.1</b> Using docker</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="running-pvactools.html"><a href="running-pvactools.html#running-pvactools-1"><i class="fa fa-check"></i><b>2.3</b> Running pVACtools</a></li>
+<li class="chapter" data-level="2.4" data-path="running-pvactools.html"><a href="running-pvactools.html#understanding-pvac-outputs"><i class="fa fa-check"></i><b>2.4</b> Understanding pVAC outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html"><i class="fa fa-check"></i><b>3</b> Tour of pVACview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#introduction-to-the-pvacview-module"><i class="fa fa-check"></i><b>3.2</b> Introduction to the pVACview module</a></li>
+<li class="chapter" data-level="3.3" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#tour-of-the-pvacview-interface"><i class="fa fa-check"></i><b>3.3</b> Tour of the pVACview interface</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>4</b> Conclusions</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="conclusions.html"><a href="conclusions.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="conclusions.html"><a href="conclusions.html#key-conclusions"><i class="fa fa-check"></i><b>4.2</b> Key conclusions</a></li>
+<li class="chapter" data-level="4.3" data-path="conclusions.html"><a href="conclusions.html#additional-resources"><i class="fa fa-check"></i><b>4.3</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
+<a href="http://jhudatascience.org/"><img src="https://jhudatascience.org/images/dasl.png" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/hc8Xt3Y2Znjb6M4Y7"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to pVACtools</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_ITN.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/itcr_main_image.png">
+</div>
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<div id="motivation" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Motivation</h2>
+<p>Identification of neoantigens is a critical step in predicting response to checkpoint blockade therapy and design of personalized cancer vaccines. This is a cross-disciplinary challenge, involving genomics, proteomics, immunology, and computational approaches. We have built a computational framework called pVACtools that, when paired with a well-established genomics pipeline, produces an end-to-end solution for neoantigen characterization. pVACtools supports identification of altered peptides from different mechanisms, including point mutations, in-frame and frameshift insertions and deletions, and gene fusions. Prediction of peptide:MHC binding is accomplished by supporting an ensemble of MHC Class I and II binding algorithms within a framework designed to facilitate the incorporation of additional algorithms. Prioritization of predicted peptides occurs by integrating diverse data, including mutant allele expression, peptide binding affinities, and determination whether a mutation is clonal or subclonal. Interactive visualization via a Web interface allows clinical users to efficiently generate, review, and interpret results, selecting candidate peptides for individual patient vaccine designs. Additional modules support design choices needed for competing vaccine delivery approaches. One such module optimizes peptide ordering to minimize junctional epitopes in DNA vector vaccines. Downstream analysis commands for synthetic long peptide vaccines are available to assess candidates for factors that influence peptide synthesis. All of the aforementioned steps are executed via a modular workflow consisting of tools for neoantigen prediction from somatic alterations (pVACseq and pVACfuse), prioritization, and selection using a graphical Web-based interface (pVACviz), and design of DNA vector–based vaccines (pVACvector) and synthetic long peptide vaccines. pVACtools is available at <a href="https://www.pvactools.org">https://www.pvactools.org</a>.</p>
+<p><img src="resources/images/01-intro_files/figure-html/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y_g2491f283519_0_0.png" title="pVACtools is a cancer immunotherapy tools suite" alt="pVACtools is a cancer immunotherapy tools suite" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="target-audience" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Target Audience</h2>
+<p>The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design and neoantigen prioritization using pVACtools.</p>
+</div>
+<div id="curriculum" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Curriculum</h2>
+<p>This course will teach learners to:</p>
+<ul>
+<li>Understand key concepts of immunogenomics and neoantigen identification</li>
+<li>How to run the pVACtools software suite</li>
+<li>How to visualize and prioritize neoantigen candidates with pVACview</li>
+</ul>
+<p>For more background on pVACtools please consult the core pVAC papers <span class="citation">(<a href="#ref-Hundal2016" role="doc-biblioref">Hundal et al. 2016</a>, <a href="#ref-Hundal2018" role="doc-biblioref">2018</a>, <a href="#ref-Hundal2020" role="doc-biblioref">2020</a>)</span>.</p>
+
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Hundal2016" class="csl-entry">
+Hundal, Jasreet, Beatriz M. Carreno, Allegra A. Petti, Gerald P. Linette, Obi L. Griffith, Elaine R. Mardis, and Malachi Griffith. 2016. <span>“<span class="nocase">pVAC</span>-Seq: A Genome-Guided in Silico Approach to Identifying Tumor Neoantigens.”</span> <em>Genome Medicine</em> 8 (1). <a href="https://doi.org/10.1186/s13073-016-0264-5">https://doi.org/10.1186/s13073-016-0264-5</a>.
+</div>
+<div id="ref-Hundal2018" class="csl-entry">
+Hundal, Jasreet, Susanna Kiwala, Yang-Yang Feng, Connor J. Liu, Ramaswamy Govindan, William C. Chapman, Ravindra Uppaluri, et al. 2018. <span>“Accounting for Proximal Variants Improves Neoantigen Prediction.”</span> <em>Nature Genetics</em> 51 (1): 175–79. <a href="https://doi.org/10.1038/s41588-018-0283-9">https://doi.org/10.1038/s41588-018-0283-9</a>.
+</div>
+<div id="ref-Hundal2020" class="csl-entry">
+Hundal, Jasreet, Susanna Kiwala, Joshua McMichael, Christopher A. Miller, Huiming Xia, Alexander T. Wollam, Connor J. Liu, et al. 2020. <span>“<span class="nocase">pVACtools</span>: A Computational Toolkit to Identify and Visualize Cancer Neoantigens.”</span> <em>Cancer Immunology Research</em> 8 (3): 409–20. <a href="https://doi.org/10.1158/2326-6066.cir-19-0401">https://doi.org/10.1158/2326-6066.cir-19-0401</a>.
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="running-pvactools.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
