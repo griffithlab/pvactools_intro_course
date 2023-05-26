@@ -1,8 +1,0 @@
-1-Introduction.md
-quiz_1.md
-2-Running-pVACtools.md
-3-Tour-of-pVACview.md
-4-Conclusions.md
-5-References.md
-About-this-Course.md
-About-the-Authors.md
