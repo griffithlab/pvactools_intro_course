@@ -13,7 +13,7 @@ This chapter will cover:
 
 ## Installation of pVACtools
 
-This section will how to install pVACtools.
+This section will describe how to install pVACtools.
 
 ### Using docker
 
