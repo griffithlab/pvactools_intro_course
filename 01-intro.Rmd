@@ -9,17 +9,54 @@ This course is currently under development. The topics to be covered are outline
 
 ## Motivation
 
-Identification of neoantigens is a critical step in predicting response to checkpoint blockade therapy and design of personalized cancer vaccines. This is a cross-disciplinary challenge, involving genomics, proteomics, immunology, and computational approaches. We have built a computational framework called pVACtools that, when paired with a well-established genomics pipeline, produces an end-to-end solution for neoantigen characterization. pVACtools supports identification of altered peptides from different mechanisms, including point mutations, in-frame and frameshift insertions and deletions, and gene fusions. Prediction of peptide:MHC binding is accomplished by supporting an ensemble of MHC Class I and II binding algorithms within a framework designed to facilitate the incorporation of additional algorithms. Prioritization of predicted peptides occurs by integrating diverse data, including mutant allele expression, peptide binding affinities, and determination whether a mutation is clonal or subclonal. Interactive visualization via a Web interface allows clinical users to efficiently generate, review, and interpret results, selecting candidate peptides for individual patient vaccine designs. Additional modules support design choices needed for competing vaccine delivery approaches. One such module optimizes peptide ordering to minimize junctional epitopes in DNA vector vaccines. Downstream analysis commands for synthetic long peptide vaccines are available to assess candidates for factors that influence peptide synthesis. All of the aforementioned steps are executed via a modular workflow consisting of tools for neoantigen prediction from somatic alterations (pVACseq and pVACfuse), prioritization, and selection using a graphical Web-based interface (pVACviz), and design of DNA vector–based vaccines (pVACvector) and synthetic long peptide vaccines. pVACtools is available at [https://www.pvactools.org](https://www.pvactools.org).
+Identification of neoantigens is a critical step in predicting response to checkpoint blockade therapy and design of personalized cancer vaccines.
+This is a cross-disciplinary challenge, involving genomics, proteomics, immunology, and computational approaches. We have built a computational
+framework called pVACtools that, when paired with a well-established genomics pipeline, produces an end-to-end solution for neoantigen characterization.
+pVACtools supports identification of altered peptides from different mechanisms, including point mutations, in-frame and frameshift insertions and deletions,
+and gene fusions. Prediction of peptide:MHC binding is accomplished by supporting an ensemble of MHC Class I and II binding algorithms within a framework
+designed to facilitate the incorporation of additional algorithms. Prioritization of predicted peptides occurs by integrating diverse data, including mutant
+allele expression, peptide binding affinities, and determination whether a mutation is clonal or subclonal. Interactive visualization via a Web interface allows
+clinical users to efficiently generate, review, and interpret results, selecting candidate peptides for individual patient vaccine designs. Additional modules
+support design choices needed for competing vaccine delivery approaches. One such module optimizes peptide ordering to minimize junctional epitopes in DNA vector
+vaccines. Downstream analysis commands for synthetic long peptide vaccines are available to assess candidates for factors that influence peptide synthesis. All
+of the aforementioned steps are executed via a modular workflow consisting of tools for neoantigen prediction from somatic alterations (pVACseq, pVACfuse, and pVACbind),
+prioritization, and selection using a graphical Web-based interface (pVACview), and design of DNA vector–based vaccines (pVACvector) and synthetic long peptide
+vaccines. pVACtools is available at [https://www.pvactools.org](https://www.pvactools.org).
 
 ```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "pVACtools is a cancer immunotherapy tools suite"}
-ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g2491f283519_0_0")
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g22b1533a196_0_0")
 ```
 
-## Target Audience  
+## Background
 
-The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design and neoantigen prioritization using pVACtools. It assumes that the learner is familiar with basic biology, genetics and immunology concepts. 
+Neoantigens are unique peptide sequences generated from mutations acquired somatically in tumor cells. These antigens provide an avenue for tumor-specific immune
+cell recognition and have been found to be important targets for cancer immunotherapies1–3. Effective neoantigens, presented by the major histocompatibility complex
+(MHC) and thus introduced to the patient’s immune system, can prime and activate CD8+ and CD4+ T cells for downstream signaling of cell-death. Patients with high tumor
+mutation burden tend to have stronger responses to neoantigen based immunotherapy treatments4–6. DNA and RNA sequencing technologies allow researchers
+and clinicians to computationally predict potential neoantigens based on tumor-specific mutations.
 
-## Curriculum  
+However, neoantigen generation and presentation is complex, and a host of factors must be evaluated by complex analyses to characterize each potential neoantigen (Figure 1). These include but are not limited to: somatic variant
+identification, tumor clonality assessment, RNA expression estimation, mRNA isoform selection, inference of translated tumor specific peptides that arise from the
+somatic variant, and prediction of peptide processing, peptide transportation, peptide-MHC binding, peptide-MHC stability and recognition by cytotoxic T cells7.
+pVACtools can be used as the final step in a well-established variant calling pipeline. It leverages existing tools with functionality related to variant annotation
+(Ensembl VEP55), identifying neoantigens from specific sources (e.g. fusions via star-fusion56, AGfusion57, and Arriba58), HLA typing (OptiType59, PHLAT60),
+peptide-MHC binding prediction (IEDB61, NetMHCpan62, MHCflurry63, MHCnuggets64), peptide-MHC stability (NetMHCstabpan65), peptide processing (NetChop66), manufacturability
+metrics (vaxrank), and reference proteome similarity (BLAST). Each of these tools tackles specific tasks within the broader goal of antigen analysis and is utilized by
+pVACtools to provide an end-to-end integration of novel algorithms and established tools needed to discover, characterize, prioritize, and utilize tumor-specific
+neoantigens in basic research and clinical applications. Combining pVACtools
+with existing variant calling pipelines provides an end-to-end solution for
+neoantigen prediction and characterization.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Tumor neoantigen background"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g22b1533a196_0_6")
+```
+
+## Target Audience
+
+The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design and neoantigen prioritization using pVACtools.
+It assumes that the learner is familiar with basic biology, genetics and immunology concepts.
+
+## Curriculum
 
 This course will teach learners to:
 
