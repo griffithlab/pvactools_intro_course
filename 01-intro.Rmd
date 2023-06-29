@@ -30,22 +30,24 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 ## Background
 
 Neoantigens are unique peptide sequences generated from mutations acquired somatically in tumor cells. These antigens provide an avenue for tumor-specific immune
-cell recognition and have been found to be important targets for cancer immunotherapies1–3. Effective neoantigens, presented by the major histocompatibility complex
-(MHC) and thus introduced to the patient’s immune system, can prime and activate CD8+ and CD4+ T cells for downstream signaling of cell-death. Patients with high tumor
-mutation burden tend to have stronger responses to neoantigen based immunotherapy treatments4–6. DNA and RNA sequencing technologies allow researchers
-and clinicians to computationally predict potential neoantigens based on tumor-specific mutations.
+cell recognition and have been found to be important targets for cancer immunotherapies [@Keskin2018; @Ott2017; @Hilf2018]. Effective neoantigens, presented by the
+major histocompatibility complex (MHC) and thus introduced to the patient’s immune system, can prime and activate CD8+ and CD4+ T cells for downstream signaling of
+cell-death. Patients with high tumor mutation burden tend to have stronger responses to neoantigen based immunotherapy treatments [@Brown2014; @Rizvi2015; @Schumacher2015].
+DNA and RNA sequencing technologies allow researchers and clinicians to computationally predict potential neoantigens based on tumor-specific mutations.
 
-However, neoantigen generation and presentation is complex, and a host of factors must be evaluated by complex analyses to characterize each potential neoantigen (Figure 1). These include but are not limited to: somatic variant
-identification, tumor clonality assessment, RNA expression estimation, mRNA isoform selection, inference of translated tumor specific peptides that arise from the
-somatic variant, and prediction of peptide processing, peptide transportation, peptide-MHC binding, peptide-MHC stability and recognition by cytotoxic T cells7.
+However, neoantigen generation and presentation is complex, and a host of factors must be evaluated by complex analyses to characterize each potential neoantigen.
+These include but are not limited to: somatic variant identification, tumor clonality assessment, RNA expression estimation, mRNA isoform selection, inference of
+translated tumor specific peptides that arise from the somatic variant, and prediction of peptide processing, peptide transportation, peptide-MHC binding, peptide-MHC
+stability and recognition by cytotoxic T cells [@Richters2019].
+
 pVACtools can be used as the final step in a well-established variant calling pipeline. It leverages existing tools with functionality related to variant annotation
-(Ensembl VEP55), identifying neoantigens from specific sources (e.g. fusions via star-fusion56, AGfusion57, and Arriba58), HLA typing (OptiType59, PHLAT60),
-peptide-MHC binding prediction (IEDB61, NetMHCpan62, MHCflurry63, MHCnuggets64), peptide-MHC stability (NetMHCstabpan65), peptide processing (NetChop66), manufacturability
-metrics (vaxrank), and reference proteome similarity (BLAST). Each of these tools tackles specific tasks within the broader goal of antigen analysis and is utilized by
-pVACtools to provide an end-to-end integration of novel algorithms and established tools needed to discover, characterize, prioritize, and utilize tumor-specific
-neoantigens in basic research and clinical applications. Combining pVACtools
-with existing variant calling pipelines provides an end-to-end solution for
-neoantigen prediction and characterization.
+(Ensembl VEP [@McLaren2016]), identifying neoantigens from specific sources (e.g. fusions via star-fusion [@Haas2019], AGFusion [@Murphy2016], and Arriba [@Uhrig2021]),
+HLA typing (OptiType [@Szolek2014], PHLAT [@Bai2018]), peptide-MHC binding prediction (IEDB [@Vita2018], NetMHCpan [@Jurtz2017], MHCflurry [@ODonnell2018],
+MHCnuggets [@Shao2020]), peptide-MHC stability (NetMHCstabpan [@Rasmussen2016]], peptide processing (NetChop [@Nielsen2005]), manufacturability
+metrics (vaxrank [@Rubinsteyn2017]), and reference proteome similarity (BLAST [@Altschul1990]). Each of these tools tackles specific tasks within the broader goal of
+antigen analysis and is utilized by pVACtools to provide an end-to-end integration of novel algorithms and established tools needed to discover, characterize, prioritize,
+and utilize tumor-specific neoantigens in basic research and clinical applications. Combining pVACtools with existing variant calling pipelines provides an end-to-end
+solution for neoantigen prediction and characterization.
 
 ```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Tumor neoantigen background"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g22b1533a196_0_6")
