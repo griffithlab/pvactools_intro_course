@@ -90,7 +90,7 @@ General:
 - `Homo_sapiens.GRCh38.pep.all.fa.gz`: A reference proteome peptide FASTA to use
   for determining whether there are any reference matches of neoantigen candidates
 
-To download this data, please run the following command:
+To download this data, please run the following commands:
 
 ```{r, engine = 'bash', eval = FALSE}
 wget https://raw.githubusercontent.com/griffithlab/pVACtools_Intro_Course/main/HCC1395_inputs.zip
@@ -99,4 +99,4 @@ unzip HCC1395_inputs.zip
 
 This course will not cover the required pre-processing steps for the pVACtools
 input data but extensive instructions on how to prepare your own data for use
-with pVACtools can be found at[pvactools.org](https://www.pvactools.org)
+with pVACtools can be found at [pvactools.org](https://www.pvactools.org)
