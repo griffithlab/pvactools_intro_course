@@ -68,11 +68,31 @@ install.packages("shinycssloaders", dependencies=TRUE)
 
 For this course, we have put together a set of input data for the HCC1395
 cell line. Data from this cell line is commonly used as test data in bioinformatics
-applications.
+applications. The input data consists of the following files:
 
+For pVACseq:
+- `annotated.expression.vcf.gz`: A somatic (tumor-normal) VCF and its tbi index file. The VCF has been
+  annotated with VEP and has coverage and expression information added and.
+- `phased.vcf.gz`: A phased tumor-germline VCF and its tbi index file to provide information about
+  in-phase proximal variants that might alter the predicted peptide sequence around a somatic
+  mutation of interest
+- `optitype_normal_result.tsv`: A OptiType file with HLA allele typing predictions
+
+For pVACfuse:
+- `agfusion_results`: A AGFusion output directory with annotated fusion calls
+- `star-fusion.fusion_predictions.tsv`: A STARFusion prediction file with fusion read support
+  and expression information
+
+General:
+- `Homo_sapiens.GRCh38.pep.all.fa.gz`: A reference proteome peptide FASTA to use
+  for determining whether there are any reference matches of neoantigen candidates
+
+To download this data, please run the following command:
 
 ```{r, engine = 'bash', eval = FALSE}
-TODO: download instructions
+wget
+https://raw.githubusercontent.com/griffithlab/pVACtools_Intro_Course/main/HCC1395_inputs.zip
+unzip HCC1395_inputs.zip
 ```
 
 This course will not cover the required pre-processing steps for the pVACtools
