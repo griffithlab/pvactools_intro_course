@@ -5,8 +5,9 @@ rmd_files: ["index.Rmd",
             "01-intro.Rmd",
             "02-prerequisites.Rmd",
             "03-running_pvactools.Rmd",
-            "04-pvacview_tour.Rmd",
-            "05-conclusions.Rmd",
+            "04-outputs.Rmd",
+            "05-pvacview_tour.Rmd",
+            "06-conclusions.Rmd",
             "About.Rmd",
             "References.Rmd"]
 new_session: yes
