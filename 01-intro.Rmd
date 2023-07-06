@@ -21,7 +21,7 @@ support design choices needed for competing vaccine delivery approaches. One suc
 vaccines. Downstream analysis commands for synthetic long peptide vaccines are available to assess candidates for factors that influence peptide synthesis. All
 of the aforementioned steps are executed via a modular workflow consisting of tools for neoantigen prediction from somatic alterations (pVACseq, pVACfuse, and pVACbind),
 prioritization, and selection using a graphical Web-based interface (pVACview), and design of DNA vector–based vaccines (pVACvector) and synthetic long peptide
-vaccines. pVACtools is available at [https://www.pvactools.org](https://www.pvactools.org).
+vaccines. pVACtools is available at [http://www.pvactools.org](http://www.pvactools.org).
 
 ```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "pVACtools is a cancer immunotherapy tools suite"}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g22b1533a196_0_0")

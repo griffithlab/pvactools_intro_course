@@ -99,4 +99,4 @@ unzip HCC1395_inputs.zip
 
 This course will not cover the required pre-processing steps for the pVACtools
 input data but extensive instructions on how to prepare your own data for use
-with pVACtools can be found at [pvactools.org](https://www.pvactools.org)
+with pVACtools can be found at [pvactools.org](http://www.pvactools.org)
