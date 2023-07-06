@@ -21,18 +21,18 @@ In your Terminal execute the following command:
 mkdir pVACtools_outputs
 
 docker run \
--v HCC1395_inputs:/HCC1395_inputs \
--v pVACtools_outputs:/pVACtools_outputs \
+-v ${PWD}/HCC1395_inputs:/HCC1395_inputs \
+-v ${PWD}/pVACtools_outputs:/pVACtools_outputs \
 -it griffithlab/pvactools:4.0.0 \
 /bin/bash
 ```
 
 This will pull the 4.0.0 version of the griffithlab/pvactools Docker image and
-start an interactive session of that Docker image. The `-v
-HCC1395_inputs:/HCC1395_inputs` part of the command will mount the
+start an interactive session of that Docker image. The `-v ${PWD}/HCC1395_inputs:/HCC1395_inputs`
+part of the command will mount the
 `HCC1395_inputs` folder at `/HCC1395_inputs` inside of the Docker container
 so that you will have access to the input data from inside the Docker
-container. The `-v pVACtools_outputs:/pVACtools_outputs` part of the command
+container. The `-v ${PWD}/pVACtools_outputs:/pVACtools_outputs` part of the command
 will mount the `pVACtools_outputs` folder you just created. We will write the
 outputs from pVACseq and pVACfuse to that folder so that you will have access
 to it once you exit the Docker image.
