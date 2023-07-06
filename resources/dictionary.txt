@@ -21,6 +21,7 @@ Datatrail
 DataTrail
 Dockerfile
 Dockerhub
+deprioritized
 dropdown
 epitope
 epitopes
@@ -41,6 +42,7 @@ HCC
 HLA
 histocompatibility
 https
+http
 IC
 IEDB
 ITCR
@@ -50,6 +52,7 @@ immunotherapy
 isoform
 immunogenomics
 impactful
+indel
 indels
 inframe
 itcrtraining

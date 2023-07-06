@@ -41,9 +41,9 @@ to it once you exit the Docker image.
 
 pVACseq is used to identify neoantigens from missense, inframe indel, and
 frameshift mutations. The pipeline uses a somatic VCF file as an input, which
-represents variants called in the tumor sample. The VEP annoations in the VCF file
+represents variants called in the tumor sample. The VEP annotations in the VCF file
 inform the variant type of a variant and their consequence on the gene transcripts
-overlapping the genomic coodinates of the variant. The amino acid change of
+overlapping the genomic coordinates of the variant. The amino acid change of
 the predicted consequence if used by pVACseq to calculate the mutated peptide sequence.
 
 The pVACseq pipeline is run using the `pvacseq run` command.
@@ -196,7 +196,7 @@ all \
 ## Running pVACfuse
 
 pVACfuse is run to in order to predict neoantigens from fusion events. The
-pipeline uses annotated fusion calls from eithe AGFusion or Arriba for this
+pipeline uses annotated fusion calls from either AGFusion or Arriba for this
 purpose. These annotators already include the fusion peptide sequence in their
 outputs which pVACfuse uses to extract neoantigens around the fusion position.
 
