@@ -159,7 +159,7 @@ Given the considerations outlined above, let's run pVACseq on our sample data.
 
 From the `optitype_normal_result.tsv` we know that the patient's class I alleles are
 HLA-A\*29:02, HLA-B\*45:01, HLA-B\*82:02, and HLA-C\*06:02 (indicated that two of three class I
-alleles are homozygous in this sample).We also have clinical typing information that confirms 
+alleles are homozygous in this sample). We also have clinical typing information that confirms 
 these class I alleles as well as identifying DQA1\*03:03, DQB1\*03:02, and DRB1\*04:05 as the 
 patient's class II alleles.
 

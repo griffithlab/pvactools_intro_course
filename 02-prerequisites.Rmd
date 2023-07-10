@@ -21,7 +21,7 @@ Docker is a tool that is used to automate the deployment of applications
 in lightweight containers so that applications can work efficiently in
 different environments in isolation. We provide versioned Docker containers
 for all pVACtools [releases](https://github.com/griffithlab/pVACtools/releases) 
-via [dockerhub griffithlab/pvactools](https://hub.docker.com/r/griffithlab/pvactools).
+via [Docker Hub using the griffithlab/pvactools image name](https://hub.docker.com/r/griffithlab/pvactools).
 
 In order to use Docker, you will to download the [Docker Desktop software](https://www.docker.com/get-started/).
 Please ensure you select the correct install package for your operating
