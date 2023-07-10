@@ -5,7 +5,7 @@ ottrpal::set_knitr_image_path()
 
 # Introduction
 
-This course is currently under development. The topics to be covered are outlined below.
+This course has been developed recently (Summer 2023). We welcome any feedback at help@pvactools.org or by submission of [GitHub issues](https://github.com/griffithlab/pVACtools_Intro_Course/issues).
 
 ## Motivation
 
@@ -15,8 +15,8 @@ framework called pVACtools that, when paired with a well-established genomics pi
 pVACtools supports identification of altered peptides from different mechanisms, including point mutations, in-frame and frameshift insertions and deletions,
 and gene fusions. Prediction of peptide:MHC binding is accomplished by supporting an ensemble of MHC Class I and II binding algorithms within a framework
 designed to facilitate the incorporation of additional algorithms. Prioritization of predicted peptides occurs by integrating diverse data, including mutant
-allele expression, peptide binding affinities, and determination whether a mutation is clonal or subclonal. Interactive visualization via a Web interface allows
-clinical users to efficiently generate, review, and interpret results, selecting candidate peptides for individual patient vaccine designs. Additional modules
+allele expression, peptide binding affinities, and determination of whether a mutation is clonal or subclonal. Interactive visualization via a Web interface allows
+users to efficiently generate, review, and interpret results, selecting candidate peptides for individual experiments or patient vaccine designs. Additional modules
 support design choices needed for competing vaccine delivery approaches. One such module optimizes peptide ordering to minimize junctional epitopes in DNA vector
 vaccines. Downstream analysis commands for synthetic long peptide vaccines are available to assess candidates for factors that influence peptide synthesis. All
 of the aforementioned steps are executed via a modular workflow consisting of tools for neoantigen prediction from somatic alterations (pVACseq, pVACfuse, and pVACbind),
@@ -55,7 +55,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 
 ## Target Audience
 
-The course is intended for anyone seeking a better understanding of current best practices in cancer vaccine design and neoantigen prioritization using pVACtools.
+The course is intended for anyone seeking a better understanding of current best practices in neoantigen identification and prioritization using pVACtools.
 It assumes that the learner is familiar with basic biology, genetics and immunology concepts.
 
 ## Curriculum

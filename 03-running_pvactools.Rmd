@@ -28,7 +28,8 @@ docker run \
 ```
 
 This will pull the 4.0.0 version of the griffithlab/pvactools Docker image and
-start an interactive session of that Docker image. The `-v ${PWD}/HCC1395_inputs:/HCC1395_inputs`
+start an interactive session (`-it`) of that Docker image using the bash shell (`/bin/bash`). 
+The `-v ${PWD}/HCC1395_inputs:/HCC1395_inputs`
 part of the command will mount the
 `HCC1395_inputs` folder at `/HCC1395_inputs` inside of the Docker container
 so that you will have access to the input data from inside the Docker
@@ -41,10 +42,10 @@ to it once you exit the Docker image.
 
 pVACseq is used to identify neoantigens from missense, inframe indel, and
 frameshift mutations. The pipeline uses a somatic VCF file as an input, which
-represents variants called in the tumor sample. The VEP annotations in the VCF file
-inform the variant type of a variant and their consequence on the gene transcripts
-overlapping the genomic coordinates of the variant. The amino acid change of
-the predicted consequence if used by pVACseq to calculate the mutated peptide sequence.
+represents variants identified in the tumor sample. The VEP annotations in the VCF file
+provide the variant type of a variant and their consequence on individual gene transcripts
+overlapping the genomic coordinates of the variant. The predicted amino acid change of
+the variant for a particular transcript is used by pVACseq to calculate the mutated peptide sequence.
 
 The pVACseq pipeline is run using the `pvacseq run` command.
 
@@ -58,16 +59,18 @@ following order:
   information.
 - `sample_name`: The name of the tumor sample being processed. When processing
   a multi-sample VCF the sample name must be a sample ID in the input VCF #CHROM
-  header line. Only variants that are called (genotype/GT 0/1 or 1/1) in that
-  sample will be processed.
-- `allele(s)`: The name of the HLA allele to use for epitope prediction. Multiple
+  header line. Only variants that are called (with a genotype/GT of 0/1 or 1/1) 
+  in that sample will be processed.
+- `allele(s)`: The name of the HLA allele(s) to use for epitope prediction. Multiple
   alleles can be specified using a comma-separated list. These should be the
-  HLA alleles of your patient. You might have clinical typing information for
-  your patient. If not, you will need to computational predict the patient's
-  HLA type using software such as OptiType.
+  HLA alleles of your patient/sample. You might have clinical typing information for
+  your patient. If not, you will need to computationally predict the patient's
+  HLA type using software such as OptiType. The the HLA allele names should 
+  be in the following format: `HLA-A*02:01`.  
 - `prediction_algorithms`: The epitope prediction algorithms to use. Multiple
   prediction algorithms can be specified, separated by spaces. Use `all` to
-  run all available prediction algorithms.
+  run all available prediction algorithms. pVACseq will automatically determine 
+  which algorithms are valid for each HLA allele. 
 - `output_dir`: The directory for writing all result files.
 
 ### Optional Parameters for pVACseq
@@ -102,23 +105,24 @@ your run. Here are a list of parameters we generally recommend:
   subset of peptide positions are presented to the T cell receptor
   for recognition, while others are responsible for anchoring to the MHC, making
   these positional considerations critical for predicting T cell responses.
-  Conventionally, the 1st, 2nd, n-1 and n position in a neoantigen candidates
+  Conventionally, the 1st, 2nd, n-1 and n position in a neoantigen candidate
   were considered anchors while recent studies [@Xia2023] have shown that
   these positions will depend on the HLA allele. Setting this flag will use
-  allele-specific anchor locations.
+  allele-specific anchor locations where possible (we have predictions for ~300 common alleles).
 - `--run-reference-proteome-similarity`: One consideration when selecting
   neoantigen candidates, is that the neoantigen should not occur natively in
   the patient's proteome. When this flag is set, pVACseq will search for each
   neoantigen candidate in the reference proteome and report any hits found.
   By default this is done using BLASTp but we recommend using a proteome FASTA
-  file via the `--peptide-fasta` parameter to speed up this step.
+  file via the `--peptide-fasta` parameter to speed up this step. This will trigger
+  a much faster k-mer based search strategy.
 - `--pass-only`: By default, all variants that were called in the tumor sample
   are considered by pVACseq. This flag will lead pVACseq to skip variants that
   have a FILTER applied in the VCF to, e.g., exclude variants that were marked
   as low quality by the variant caller.
 - `--percentile-threshold`: When considering the peptide-MHC binding affinity
   for filtering and prioritizing neoantigen candidates, by default only the
-  IC50 value is being used. Setting this parameter will additional also filter
+  IC50 value is being used. Setting this parameter will additionally also filter
   on the predicted percentile. We recommend a value of 0.01 (1%) for this
   threshold.
 
@@ -143,7 +147,7 @@ on your specific analysis needs:
 - `--downstream-sequence-length`: For frameshift variants, the downstream
   sequence can potentially be very long, which can be computationally
   expensive. This parameter limits how many amino acids of the downstream
-  sequence are included in the prediction.
+  sequence are included in the prediction. We often set a limit of `100`.
 
 There are additional parameters in pVACseq that we won't discuss at this point
 because the defaults are usually sufficient. To see all available parameters, you can
@@ -154,9 +158,13 @@ run `pvacseq run -h`.
 Given the considerations outlined above, let's run pVACseq on our sample data.
 
 From the `optitype_normal_result.tsv` we know that the patient's class I alleles are
-HLA-A\*29:02, HLA-B\*45:01, HLA-B\*82:02, and HLA-C\*06:02. We also have clinical typing 
-information that confirms these class I alleles as well as identified DQA1\*03:03,
-DQB1\*03:02, and DRB1\*04:05 as the patient's class II alleles.
+HLA-A\*29:02, HLA-B\*45:01, HLA-B\*82:02, and HLA-C\*06:02 (indicated that two of three class I
+alleles are homozygous in this sample).We also have clinical typing information that confirms 
+these class I alleles as well as identifying DQA1\*03:03, DQB1\*03:02, and DRB1\*04:05 as the 
+patient's class II alleles.
+
+Note that where needed pVACseq will automatically create HLA class II dimer combinations using
+valid class II allele pairings.
 
 To identify the tumor and normal sample names we will grep the VCF file for
 the CHROM header:
@@ -230,7 +238,7 @@ usually apply. Here are a list of parameters we generally recommend:
 
 - `--starfusion-file`: Path to a `star-fusion.fusion_predictions.tsv` or
   `star-fusion.fusion_predictions.abridged.tsv`. This file is used to extract
-  read support and expression information.
+  read support and expression information for each predicted fusion.
 - `--iedb-install-directory`: For speed and reliability, we generally recommend
   that users use a standalone installation of the IEDB software. The pVACtools
   Docker containers already come with this software pre-installed in the
@@ -250,7 +258,7 @@ usually apply. Here are a list of parameters we generally recommend:
   file via the `--peptide-fasta` parameter to speed up this step.
 - `--percentile-threshold`: When considering the peptide-MHC binding affinity
   for filtering and prioritizing neoantigen candidates, by default only the
-  IC50 value is being used. Setting this parameter will additional also filter
+  IC50 value is being used. Setting this parameter will additionally also filter
   on the predicted percentile. We recommend a value of 0.01 (1%) for this
   threshold.
 
@@ -272,7 +280,7 @@ on your specific analysis needs:
 - `--downstream-sequence-length`: For frameshift fusions, the downstream
   sequence can potentially be very long, which can be computationally
   expensive. This parameter limits how many amino acids of the downstream
-  sequence are included in the prediction.
+  sequence are included in the prediction. We often set a limit of `100`.
 
 ### pVACfuse Command
 

@@ -20,7 +20,8 @@ pVACfuse.
 Docker is a tool that is used to automate the deployment of applications
 in lightweight containers so that applications can work efficiently in
 different environments in isolation. We provide versioned Docker containers
-for all pVACtools releases.
+for all pVACtools [releases](https://github.com/griffithlab/pVACtools/releases) 
+via [dockerhub griffithlab/pvactools](https://hub.docker.com/r/griffithlab/pvactools).
 
 In order to use Docker, you will to download the [Docker Desktop software](https://www.docker.com/get-started/).
 Please ensure you select the correct install package for your operating
@@ -66,18 +67,29 @@ install.packages("shinycssloaders", dependencies=TRUE)
 
 ## Data
 
-For this course, we have put together a set of input data for the HCC1395
-cell line. Data from this cell line is commonly used as test data in bioinformatics
-applications. The input data consists of the following files:
+For this course, we have put together a set of input data generated from the breast 
+cancer cell line HCC1395 and a matched normal lymphoblastoid cell line HCC1395BL.
+Data from this cell line is commonly used as test data in bioinformatics applications. 
+For more information on these lines and the generation of test data, please refer to 
+the data section of our precision medicine bioinformatics course: 
+[here](https://pmbio.org/module-02-inputs/0002/05/01/Data/).
+
+The input data consists of the following files:
 
 For pVACseq:
 
 - `annotated.expression.vcf.gz`: A somatic (tumor-normal) VCF and its tbi index file. The VCF has been
-  annotated with VEP and has coverage and expression information added and.
+  annotated with VEP and has coverage and expression information added. It has also been annotated with 
+  custom VEP plugins that provide wild type and mutant version of the full length protein sequences 
+  predicted to arise from each transcript annotated with each variant.
 - `phased.vcf.gz`: A phased tumor-germline VCF and its tbi index file to provide information about
   in-phase proximal variants that might alter the predicted peptide sequence around a somatic
   mutation of interest
 - `optitype_normal_result.tsv`: A OptiType file with HLA allele typing predictions
+
+For more detailed information on how the variant input file is created, please refer to the
+[input file preparation](https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep.html) 
+section of the pVACtools docs
 
 For pVACfuse:
 
@@ -99,4 +111,5 @@ unzip HCC1395_inputs.zip
 
 This course will not cover the required pre-processing steps for the pVACtools
 input data but extensive instructions on how to prepare your own data for use
-with pVACtools can be found at [pvactools.org](http://www.pvactools.org)
+with pVACtools can be found at [pvactools.org](http://www.pvactools.org).
+
