@@ -95,9 +95,9 @@ patient's RNA.
 
 For pVACseq, this generally relies on your VCF being annotated with coverage
 and expression data. In our example, the VCF has already been annotated with
-this data. For more information about how to add coverage and expression data
-to your own VCFs, please see [here](https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/readcounts.html)
-and [here](https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/expression.html).
+this data. For more information about how to add [coverage](https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/readcounts.html)
+and [expression data](https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/expression.html)
+to your own VCFs, please see our docs.
 Additionally, filtering on the normal DNA depth and variant allele frequency
 (VAF) requires your VCF to be a tumor-normal sample VCF and the normal sample
 to be identifies in your pVACseq run using the `--normal-sample-name`
@@ -130,7 +130,7 @@ The following thresholds are applied in pVACfuse by this filter:
 
 ### Transcript Support Level Filter
 
-The Transcript Support Level (TSL) Filter, removes neoantigen candidates for
+The Transcript Support Level (TSL) Filter removes neoantigen candidates for
 transcripts with a high TSL, as defined [by Ensembl](https://grch37.ensembl.org/info/genome/genebuild/transcript_quality_tags.html#tsl).
 The cutoff for this filter is set by the `--maximum-transcript-support-level`
 parameter. Transcripts with a TSL of NA will always be filtered out.
@@ -147,16 +147,16 @@ The Top Score Filter will attempt to determine the best neoantigen candidate
 for each variants.
 
 For pVACseq it works as follows. Given a set of neoantigen candidates for a
-variant we first group the transcripts into set where all transcripts in a set
+variant we first group the transcripts into sets where all transcripts in a set
 code for the same set of neoantigen candidates. For each transcript set we then
 determine the best neoantigen candidate as follows:
 
 - Pick all neoantigens with a variant transcript that have a protein_coding Biotype
 - Of the remaining candidates, pick the ones with a variant transcript having a
   TSL less then the `--maximum-transcript-support-level`.
-- Of the remaining candidates, pick the entries with no Problematic Positions
+- Of the remaining candidates, pick the entries with no Problematic Positions.
 - Of the remaining candidates, pick the ones passing the Anchor Criteria (explained in
-  more detail further below)
+  more detail further below).
 - Of the remaining candidates, pick the one with the lowest MT IC50 Score (Median or Best
   depending on the `--top-score-metric`), lowest TSL, and longest transcript.
 
@@ -185,10 +185,10 @@ are included in creating this report.
 
 In pVACseq, for each variant, all neoantigen candidates meeting the `--aggregate-inclusion-threshold` are evaluated as follows:
 
-- Pick all entries with a variant transcript that have a protein_coding Biotype
-- Of the remaining entries, pick the ones with a variant transcript having a Transcript Support Level <= `--maximum-transcript-support-level`
-- Of the remaining entries, pick the entries with no Problematic Positions
-- Of the remaining entries, pick the ones passing the Anchor Criteria (see Criteria Details section below)
+- Pick all entries with a variant transcript that have a protein_coding Biotype.
+- Of the remaining entries, pick the ones with a variant transcript having a Transcript Support Level <= `--maximum-transcript-support-level`.
+- Of the remaining entries, pick the entries with no Problematic Positions.
+- Of the remaining entries, pick the ones passing the Anchor Criteria (see Criteria Details section below).
 - Of the remaining entries, pick the one with the lowest MT IC50 score( Median or Best
   depending on the `--top-score-metric`), lowest Transcript Support Level, and longest transcript.
 

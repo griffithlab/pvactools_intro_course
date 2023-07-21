@@ -71,8 +71,7 @@ For this course, we have put together a set of input data generated from the bre
 cancer cell line HCC1395 and a matched normal lymphoblastoid cell line HCC1395BL.
 Data from this cell line is commonly used as test data in bioinformatics applications. 
 For more information on these lines and the generation of test data, please refer to 
-the data section of our precision medicine bioinformatics course: 
-[here](https://pmbio.org/module-02-inputs/0002/05/01/Data/).
+the [data section of our precision medicine bioinformatics course](https://pmbio.org/module-02-inputs/0002/05/01/Data/).
 
 The input data consists of the following files:
 
@@ -80,27 +79,28 @@ For pVACseq:
 
 - `annotated.expression.vcf.gz`: A somatic (tumor-normal) VCF and its tbi index file. The VCF has been
   annotated with VEP and has coverage and expression information added. It has also been annotated with 
-  custom VEP plugins that provide wild type and mutant version of the full length protein sequences 
+  custom VEP plugins that provide wild type and mutant versions of the full length protein sequences 
   predicted to arise from each transcript annotated with each variant.
 - `phased.vcf.gz`: A phased tumor-germline VCF and its tbi index file to provide information about
   in-phase proximal variants that might alter the predicted peptide sequence around a somatic
-  mutation of interest
-- `optitype_normal_result.tsv`: A OptiType file with HLA allele typing predictions
+  mutation of interest.
+- `optitype_normal_result.tsv`: A OptiType file with HLA allele typing predictions.
 
 For more detailed information on how the variant input file is created, please refer to the
 [input file preparation](https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep.html) 
-section of the pVACtools docs
+section of the pVACtools docs.
 
 For pVACfuse:
 
-- `agfusion_results`: A AGFusion output directory with annotated fusion calls
+- `agfusion_results`: An AGFusion output directory with annotated fusion
+  calls.
 - `star-fusion.fusion_predictions.tsv`: A STARFusion prediction file with fusion read support
-  and expression information
+  and expression information.
 
 General:
 
 - `Homo_sapiens.GRCh38.pep.all.fa.gz`: A reference proteome peptide FASTA to use
-  for determining whether there are any reference matches of neoantigen candidates
+  for determining whether there are any reference matches of neoantigen candidates.
 
 To download this data, please run the following commands:
 
