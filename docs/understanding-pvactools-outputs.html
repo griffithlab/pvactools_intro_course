@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Understanding pVACtools outputs | Introduction to pVACtools</title>
+  <meta name="description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Understanding pVACtools outputs | Introduction to pVACtools" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Understanding pVACtools outputs | Introduction to pVACtools" />
+  
+  <meta name="twitter:description" content="An introduction to the background and basic concepts around neoantigen identification and how to use pVACtools" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/ITN_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="running-pvactools.html"/>
+<link rel="next" href="tour-of-pvacview.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style_ITN.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.itcrtraining.org/"><img src="assets/ITN_logo.png" style="padding-left: 15px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#background"><i class="fa fa-check"></i><b>1.2</b> Background</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#target-audience"><i class="fa fa-check"></i><b>1.3</b> Target Audience</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#curriculum"><i class="fa fa-check"></i><b>1.4</b> Curriculum</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>2</b> Prerequisites</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prerequisites.html"><a href="prerequisites.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="prerequisites.html"><a href="prerequisites.html#docker"><i class="fa fa-check"></i><b>2.2</b> Docker</a></li>
+<li class="chapter" data-level="2.3" data-path="prerequisites.html"><a href="prerequisites.html#terminal"><i class="fa fa-check"></i><b>2.3</b> Terminal</a></li>
+<li class="chapter" data-level="2.4" data-path="prerequisites.html"><a href="prerequisites.html#r-studio-and-r-package-dependencies"><i class="fa fa-check"></i><b>2.4</b> R Studio and R package dependencies</a></li>
+<li class="chapter" data-level="2.5" data-path="prerequisites.html"><a href="prerequisites.html#data"><i class="fa fa-check"></i><b>2.5</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="running-pvactools.html"><a href="running-pvactools.html"><i class="fa fa-check"></i><b>3</b> Running pVACtools</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="running-pvactools.html"><a href="running-pvactools.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="running-pvactools.html"><a href="running-pvactools.html#starting-docker"><i class="fa fa-check"></i><b>3.2</b> Starting Docker</a></li>
+<li class="chapter" data-level="3.3" data-path="running-pvactools.html"><a href="running-pvactools.html#running-pvacseq"><i class="fa fa-check"></i><b>3.3</b> Running pVACseq</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="running-pvactools.html"><a href="running-pvactools.html#required-parameters-for-pvacseq"><i class="fa fa-check"></i><b>3.3.1</b> Required Parameters for pVACseq</a></li>
+<li class="chapter" data-level="3.3.2" data-path="running-pvactools.html"><a href="running-pvactools.html#optional-parameters-for-pvacseq"><i class="fa fa-check"></i><b>3.3.2</b> Optional Parameters for pVACseq</a></li>
+<li class="chapter" data-level="3.3.3" data-path="running-pvactools.html"><a href="running-pvactools.html#pvacseq-command"><i class="fa fa-check"></i><b>3.3.3</b> pVACseq Command</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="running-pvactools.html"><a href="running-pvactools.html#running-pvacfuse"><i class="fa fa-check"></i><b>3.4</b> Running pVACfuse</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="running-pvactools.html"><a href="running-pvactools.html#required-parameters-for-pvacfuse"><i class="fa fa-check"></i><b>3.4.1</b> Required Parameters for pVACfuse</a></li>
+<li class="chapter" data-level="3.4.2" data-path="running-pvactools.html"><a href="running-pvactools.html#optional-parameters-for-pvacfuse"><i class="fa fa-check"></i><b>3.4.2</b> Optional Parameters for pVACfuse</a></li>
+<li class="chapter" data-level="3.4.3" data-path="running-pvactools.html"><a href="running-pvactools.html#pvacfuse-command"><i class="fa fa-check"></i><b>3.4.3</b> pVACfuse Command</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html"><i class="fa fa-check"></i><b>4</b> Understanding pVACtools outputs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#learning-objectives-2"><i class="fa fa-check"></i><b>4.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#pvactools-output-files"><i class="fa fa-check"></i><b>4.2</b> pVACtools Output Files</a></li>
+<li class="chapter" data-level="4.3" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#interpreting-the-filtered.tsv-file"><i class="fa fa-check"></i><b>4.3</b> Interpreting the filtered.tsv File</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#binding-filter"><i class="fa fa-check"></i><b>4.3.1</b> Binding Filter</a></li>
+<li class="chapter" data-level="4.3.2" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#coverage-filter"><i class="fa fa-check"></i><b>4.3.2</b> Coverage Filter</a></li>
+<li class="chapter" data-level="4.3.3" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#transcript-support-level-filter"><i class="fa fa-check"></i><b>4.3.3</b> Transcript Support Level Filter</a></li>
+<li class="chapter" data-level="4.3.4" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#top-score-filter"><i class="fa fa-check"></i><b>4.3.4</b> Top Score Filter</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#interpreting-the-aggregated.tsv-file"><i class="fa fa-check"></i><b>4.4</b> Interpreting the aggregated.tsv File</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#determining-the-best-transcript-and-best-peptide-of-a-variant"><i class="fa fa-check"></i><b>4.4.1</b> Determining the Best Transcript and Best Peptide of a Variant</a></li>
+<li class="chapter" data-level="4.4.2" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#tier-and-tiering-criteria"><i class="fa fa-check"></i><b>4.4.2</b> Tier and Tiering Criteria</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html"><i class="fa fa-check"></i><b>5</b> Tour of pVACview</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#introduction-to-the-pvacview-module"><i class="fa fa-check"></i><b>5.2</b> Introduction to the pVACview module</a></li>
+<li class="chapter" data-level="5.3" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#tour-of-the-pvacview-interface"><i class="fa fa-check"></i><b>5.3</b> Tour of the pVACview interface</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="conclusions.html"><a href="conclusions.html#learning-objectives-4"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="conclusions.html"><a href="conclusions.html#key-conclusions"><i class="fa fa-check"></i><b>6.2</b> Key conclusions</a></li>
+<li class="chapter" data-level="6.3" data-path="conclusions.html"><a href="conclusions.html#additional-resources"><i class="fa fa-check"></i><b>6.3</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://griffithlab.org/"> The Griffith Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/hc8Xt3Y2Znjb6M4Y7"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to pVACtools</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_ITN.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/itcr_main_image.png">
+</div>
+<div id="understanding-pvactools-outputs" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Understanding pVACtools outputs</h1>
+<div id="learning-objectives-2" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Learning Objectives</h2>
+<p>This chapter will cover:</p>
+<ul>
+<li>Understanding the output files produced by pVACtools</li>
+<li>Interpreting the .filtered.tsv file</li>
+<li>Interpreting the .aggregated.tsv file</li>
+</ul>
+</div>
+<div id="pvactools-output-files" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> pVACtools Output Files</h2>
+<p>Both pVACseq and pVACfuse produce three main output files:</p>
+<ul>
+<li>The <code>all_epitopes.tsv</code> file is a TSV file with all predicted neoantigens and
+all information obtained during the run.</li>
+<li>The <code>filtered.tsv</code> file is the same structure as the all_epitopes.tsv file
+but the entries have been filtered down according to the thresholds set by
+the user during the run. The filters will be further explained in
+subsequent sections.</li>
+<li>The <code>aggregated.tsv</code> is a condensed output file that contains only the
+information most pertinent to interpret the results. It has contains only
+the best neoantigen candidate for each variant. Our heuristic for
+determining the best neoantigen is described in subsequent sections of this
+course.</li>
+</ul>
+<p>There are also a number of a secondary output files produced by pVACseq and
+pVACfuse. The most important are:</p>
+<ul>
+<li><code>aggregated.metrics.json</code>: The file is only produced by pVACseq. It contains
+metadata needed for visualizing your results in pVACview.</li>
+<li><code>aggregated.tsv.reference_matches</code>: This file is created when the
+reference proteome match feature is enabled during a run. It contains
+detailed information about the reference matches found, if there are any.</li>
+</ul>
+</div>
+<div id="interpreting-the-filtered.tsv-file" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Interpreting the filtered.tsv File</h2>
+<p>The filtered.tsv file takes all the predicted neoantigens from the
+all_epitopes.tsv file and applies a number of filters to it. Filters are
+applied consecutively, meaning that only the entries passing the first filter
+will be passed along to the second filter, and so on. Only neoantigens
+passing all filters will be reported in this file.</p>
+<div id="binding-filter" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Binding Filter</h3>
+<p>The binding filter’s primary function is to filter neoantigen candidates on
+their IC50 binding affinity to an HLA allele. Because pVACtools allows users
+to run more than one prediction algorithm, we then apply two summarization
+methods on the calls for each neoantigen candidate and HLA allele combination:
+(1) pVACtools calculates the median IC50 binding affinity for all selected prediction
+algorithms (reported in the <code>Median [MT] IC50 Score</code> column), and (2) pVACtools selects
+the IC50 binding affinity prediction with the lowest value (reported in the
+<code>Best [MT] IC50 Score)</code> column. By default,
+the binding filter is applied to the median IC50 score unless
+users set the <code>--top-score-metric</code> parameters to <code>lowest</code>.</p>
+<p>The binding filter discards candidates where the binding affinity is above the
+<code>--binding-threshold</code> (default: 500). However, users may set the
+<code>--allele-specific-binding-thresholds</code> flag in order to use differing binding
+thresholds depending on the HLA allele of the prediction, as recommended by
+<a href="https://help.iedb.org/hc/en-us/articles/114094152371-What-thresholds-cut-offs-should-I-use-for-MHC-class-I-and-II-binding-predictions">IEDB</a>.
+Custom thresholds are available for the most common 76 class I HLA alleles.
+For all others, the <code>--binding-threshold</code> value is used.</p>
+<p>In addition to the binding affinity, other optional parameters can be set to
+enabled additional filtering on related metrics:</p>
+<ul>
+<li><code>--minimum-fold-change</code>: The fold change is the ratio of the mutant binding affinity to
+the wild-type binding affinity, also called agretopicity. A fold change of 1
+means that the mutant is a better binder than the wild type. pVACtools
+calculates this ratio for both the median as well as the lowest values.
+Which one is filtered on for this metric depends again on the
+<code>--top-score-metric</code> set. When a minimum fold change parameter is set, the binding filter
+discards any prediction with a agretopicity below the set cutoff. This
+parameter is not available in pVACfuse because there is no matched wildtype
+peptide for each neoantigen candidate.</li>
+<li><code>--percentile-threshold</code>: The prediction algorithms supported by pVACtools
+also report a percentile score that represents where each neoantigen’s predicted
+affinity falls in the range of other values for an HLA allele. Similar to
+the binding affinity itself, pVACtools report the median and the lowest
+percentile scores for the range of scores reported by the prediction
+algorithms chosen by the user and which on is used for filtering is again
+controlled by the <code>--top-score-metric</code> parameter.</li>
+</ul>
+</div>
+<div id="coverage-filter" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Coverage Filter</h3>
+<p>The Coverage Filter is generally used to filter out variants that don’t have
+enough read support or expression. This ensures that the remaining variants
+are not just artifacts and that the genes are actually expressed in the
+patient’s RNA.</p>
+<p>For pVACseq, this generally relies on your VCF being annotated with coverage
+and expression data. In our example, the VCF has already been annotated with
+this data. For more information about how to add coverage and expression data
+to your own VCFs, please see <a href="https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/readcounts.html">here</a>
+and <a href="https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/expression.html">here</a>.
+Additionally, filtering on the normal DNA depth and variant allele frequency
+(VAF) requires your VCF to be a tumor-normal sample VCF and the normal sample
+to be identifies in your pVACseq run using the <code>--normal-sample-name</code>
+parameter. If a coverage metric doesn’t apply because the underlying data is
+not available, <code>NA</code> is reported by pVACtools. By default, the filter will skip
+evaluating a coverage criteria when a neoantigen’s value for it is <code>NA</code>.</p>
+<p>The following thresholds are applied in pVACseq by this filter:</p>
+<ul>
+<li><code>--normal-cov</code>: Normal coverage cutoff. Minimum number of required reads in the normal DNA (default: 5).</li>
+<li><code>--tdna-cov</code>: Tumor DNA coverage cutoff. Minimum number of required reads in the tumor DNA (default: 10).</li>
+<li><code>--trna-cov</code>: Tumor RNA coverage cutoff. Minimum number of required reads in the tumor RNA (default: 10).</li>
+<li><code>--normal-vaf</code>: Normal VAF cutoff. Only sites BELOW this cutoff in the normal DNA will be considered (default: 0.02).</li>
+<li><code>--tdna-vaf</code>: Tumor DNA VAF cutoff. Only sites above this cutoff will be considered (default: 0.25).</li>
+<li><code>--trna-vaf</code>: Tumor RNA VAF cutoff. Only sites above this cutoff will be considered (default: 0.25).</li>
+<li><code>--expn-val</code>: Gene and Transcript expression cutoff. Only sites above this cutoff will be considered (default: 1.0).</li>
+</ul>
+<p>For pVACfuse, this filter evaluates a fusion variant’s fusion read support and fusion transcript expression.
+Arriba natively outputs a number of read metrics. These are the number of supporting split fragments with an anchor in
+gene1 or gene2, respectively, as well as the number of pairs (fragments) of discordant mates supporting the fusion
+(a.k.a. spanning reads or bridge reads). The sum of these three values is
+reported as Read Support in pVACfuse. The fusion transcript expression is
+parsed from the <code>--starfusion-file</code>, when provided. This is reported as FFPM
+(fusion fragments per million total reads).</p>
+<p>The following thresholds are applied in pVACfuse by this filter:</p>
+<ul>
+<li><code>--read-support</code>: Read Support cutoff. Sites above this cutoff will be considered (default: 5).</li>
+<li><code>--expn-val</code>: Expression cutoff. Sites above this cutoff will be considered (default: 0.1).</li>
+</ul>
+</div>
+<div id="transcript-support-level-filter" class="section level3" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Transcript Support Level Filter</h3>
+<p>The Transcript Support Level (TSL) Filter, removes neoantigen candidates for
+transcripts with a high TSL, as defined <a href="https://grch37.ensembl.org/info/genome/genebuild/transcript_quality_tags.html#tsl">by Ensembl</a>.
+The cutoff for this filter is set by the <code>--maximum-transcript-support-level</code>
+parameter. Transcripts with a TSL of NA will always be filtered out.</p>
+<p>Annotation with TSL values through VEP is only available for GRCh38. For other
+species and older builds, a value of “Not Supported” is written to the report
+and the TSL filter will skip those variants.</p>
+<p>This filter is currently only run by pVACseq.</p>
+</div>
+<div id="top-score-filter" class="section level3" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Top Score Filter</h3>
+<p>The Top Score Filter will attempt to determine the best neoantigen candidate
+for each variants.</p>
+<p>For pVACseq it works as follows. Given a set of neoantigen candidates for a
+variant we first group the transcripts into set where all transcripts in a set
+code for the same set of neoantigen candidates. For each transcript set we then
+determine the best neoantigen candidate as follows:</p>
+<ul>
+<li>Pick all neoantigens with a variant transcript that have a protein_coding Biotype</li>
+<li>Of the remaining candidates, pick the ones with a variant transcript having a
+TSL less then the <code>--maximum-transcript-support-level</code>.</li>
+<li>Of the remaining candidates, pick the entries with no Problematic Positions</li>
+<li>Of the remaining candidates, pick the ones passing the Anchor Criteria (explained in
+more detail further below)</li>
+<li>Of the remaining candidates, pick the one with the lowest MT IC50 Score (Median or Best
+depending on the <code>--top-score-metric</code>), lowest TSL, and longest transcript.</li>
+</ul>
+<p>This filter then reports the best neoantigen candidate for each transcript set.</p>
+<p>For pVACfuse, the neoantigen candidate for each fusion are similarly grouped
+into sets where all transcript1-transcript2 combinations in a set code for the
+same set of neoantigen candidates. From there, the best neoantigen candidate
+for each transcript set is determined by picking the candidate with the lowest
+MT IC50 Score (Median or Best depending on the <code>--top-score-metric</code>) and the
+highest fusion transcript expression.</p>
+</div>
+</div>
+<div id="interpreting-the-aggregated.tsv-file" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Interpreting the aggregated.tsv File</h2>
+<p>The <code>aggregated.tsv</code> is a condensed output file that shows the best neoantigen
+candidate for each variant and reports only the information most pertinent to
+interpreting the results. It also assigns each of the selected neoantigen candidates
+a tier based on its suitability for vaccine manufacturing.</p>
+<p>Only epitopes meeting the <code>--aggregate-inclusion-threshold</code> are included in this report
+(default: 5000). Depending on the value used for the <code>--top-score-metric</code>, all neoantigen
+candidates with a Median or Best MT IC50 Score below the selected <code>--aggregate-inclusion-threshold</code>
+are included in creating this report.</p>
+<div id="determining-the-best-transcript-and-best-peptide-of-a-variant" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Determining the Best Transcript and Best Peptide of a Variant</h3>
+<p>In pVACseq, for each variant, all neoantigen candidates meeting the <code>--aggregate-inclusion-threshold</code> are evaluated as follows:</p>
+<ul>
+<li>Pick all entries with a variant transcript that have a protein_coding Biotype</li>
+<li>Of the remaining entries, pick the ones with a variant transcript having a Transcript Support Level &lt;= <code>--maximum-transcript-support-level</code></li>
+<li>Of the remaining entries, pick the entries with no Problematic Positions</li>
+<li>Of the remaining entries, pick the ones passing the Anchor Criteria (see Criteria Details section below)</li>
+<li>Of the remaining entries, pick the one with the lowest MT IC50 score( Median or Best
+depending on the <code>--top-score-metric</code>), lowest Transcript Support Level, and longest transcript.</li>
+</ul>
+<p>In pVACfuse, the neoantigen candidate with the lowest IC50 binding affinity for each variant is selected.
+The value used for the <code>--top-score-metric</code> determines whether the lowest or
+median binding affinity is used for this comparison.</p>
+<p>The chosen entry determines the best neoantigen candidate and the best
+transcript coding for it.</p>
+</div>
+<div id="tier-and-tiering-criteria" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Tier and Tiering Criteria</h3>
+<p>For the purpose of assigning tiers, each best peptide is evaluated by a set of
+criteria. These criteria and the available tiers differ from tool to tool.</p>
+<div id="tiering-in-pvacseq" class="section level4" number="4.4.2.1">
+<h4><span class="header-section-number">4.4.2.1</span> Tiering in pVACseq</h4>
+<p>The Tiers available in pVACseq are:</p>
+<table>
+<colgroup>
+<col width="37%" />
+<col width="62%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pass</td>
+<td>Best Peptide passes the binding, expression, tsl, clonal, and anchor criteria</td>
+</tr>
+<tr class="even">
+<td>Anchor</td>
+<td>Best Peptide fails the anchor criteria but passes the binding, expression, tsl, and clonal criteria</td>
+</tr>
+<tr class="odd">
+<td>Subclonal</td>
+<td>Best Peptide fails the clonal criteria but passes the binding, tsl, and anchor criteria</td>
+</tr>
+<tr class="even">
+<td>LowExpr</td>
+<td>Best Peptide meets the Low Expression Criteria and passes the binding, tsl, clonal, and anchor criteria</td>
+</tr>
+<tr class="odd">
+<td>NoExpr</td>
+<td>Best Peptide is not expressed (RNA Expr == 0 or RNA VAF == 0)</td>
+</tr>
+<tr class="even">
+<td>Poor</td>
+<td>Best Peptide doesn’t fit in any of the above tiers, usually if it fails two or more criteria or if it fails the binding criteria</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Criteria Details</strong></p>
+<table>
+<colgroup>
+<col width="28%" />
+<col width="37%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criteria</th>
+<th>Description</th>
+<th>Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binding Criteria</td>
+<td>Pass if Best Peptide is a strong binder</td>
+<td>IC50 MT &lt; <code>--binding-threshold</code> and %ile MT &lt; <code>--percentile-threshold</code> (if parameter is set). <code>--allele-specific-binding-thresholds</code> flag is respected.</td>
+</tr>
+<tr class="even">
+<td>Expression Criteria</td>
+<td>Pass if Best Transcript is expressed</td>
+<td>Allele Expr &gt; <code>--trna-vaf</code> * <code>--expn-val</code></td>
+</tr>
+<tr class="odd">
+<td>Low Expression Criteria</td>
+<td>Peptide has low expression or no expression but RNA VAF and coverage</td>
+<td>(0 &lt; Allele Expr &lt; <code>--trna-vaf</code> * <code>--expn-val</code>) OR (RNA Expr == 0 AND RNA Depth &gt; <code>--trna-cov</code> AND RNA VAF &gt; <code>--trna-vaf</code>)</td>
+</tr>
+<tr class="even">
+<td>TSL Criteria</td>
+<td>Pass if Best Transcript has good transcript support level</td>
+<td>TSL &lt;= <code>--maximum-transcript-support-level</code></td>
+</tr>
+<tr class="odd">
+<td>Clonal Criteria</td>
+<td>Best Peptide is likely in the founding clone of the tumor</td>
+<td>DNA VAF &gt; <code>--tumor-purity</code> / 4</td>
+</tr>
+<tr class="even">
+<td>Anchor Criteria</td>
+<td>Fail if all mutated amino acids of the Best Peptide (Pos) are at an anchor position and the WT peptide has good binding (IC50 WT &lt; <code>--binding-threshold</code>). <code>--allele-specific-binding-thresholds</code> flag is respected.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tiering-in-pvacfuse" class="section level4" number="4.4.2.2">
+<h4><span class="header-section-number">4.4.2.2</span> Tiering in pVACfuse</h4>
+<p>The Tiers available in pVACfuse are:</p>
+<table>
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pass</td>
+<td>Best Peptide passes the binding, read support, and expression criteria</td>
+</tr>
+<tr class="even">
+<td>LowReadSupport</td>
+<td>Best Peptide fails the read support criteria but passes the binding and expression criteria</td>
+</tr>
+<tr class="odd">
+<td>LowExpr</td>
+<td>Best Peptide fails the expression criteria but passes the binding and read support criteria</td>
+</tr>
+<tr class="even">
+<td>Poor</td>
+<td>Best Peptide doesn’t fit any of the above tiers, usually if it fails two or more criteria or if it fails the binding criteria</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Criteria Details</strong></p>
+<table>
+<colgroup>
+<col width="28%" />
+<col width="37%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criteria</th>
+<th>Description</th>
+<th>Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binding Criteria</td>
+<td>Pass if Best Peptide is strong binder</td>
+<td>IC50 MT &lt; <code>--binding-threshold</code> and %ile MT &lt; <code>--percentile-threshold</code> (if parameter is set). <code>--allele-specific-binding-thresholds</code> flag is respected.</td>
+</tr>
+<tr class="even">
+<td>Read Support Criteria</td>
+<td>Pass if the variant has read support</td>
+<td>Read Support &lt; <code>--read-support</code></td>
+</tr>
+<tr class="odd">
+<td>Expression Criteria</td>
+<td>Pass if Best Transcript is expressed</td>
+<td>Expr &lt; <code>--expn-val</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="running-pvactools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tour-of-pvacview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
