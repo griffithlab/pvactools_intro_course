@@ -14,10 +14,104 @@ This chapter will cover:
 
 ## Introduction to the pVACview module
 
-pVACview is a R shiny based tool designed to aid specifically in the prioritization and selection of neoantigen candidates for personalized cancer vaccines or other applications. It takes as inputs a pVACseq output aggregate report file (tsv format) and a corresponding pVACseq output metrics file (json). pVACview allows the user to launch an R shiny application to load and visualize the given neoantigen candidates with detailed information including that of the genomic variant, transcripts covering the variant, and strong-binding peptides predicted from the respective transcripts. It also incorporates anchor prediction data for a range of class I HLA alleles and peptides ranging from 8- to 11-mers. By taking all these types of information into account for the neoantigen candidates, researchers will be able to make more informed decisions when deciding final peptide candidates for experiments, personalized cancer vaccines, or T cell therapies designed to target neoantigens.
+pVACview is a R shiny based tool designed to aid specifically in the prioritization and selection of
+neoantigen candidates for personalized cancer vaccines or other applications. It takes as inputs a
+pVACseq output aggregate report file (tsv format) and a corresponding pVACseq output metrics file (json).
+pVACview allows the user to launch an R shiny application to load and visualize the given neoantigen
+candidates with detailed information including that of the genomic variant, transcripts covering the
+variant, and strong-binding peptides predicted from the respective transcripts. It also incorporates
+anchor prediction data for a range of class I HLA alleles and peptides ranging from 8- to 11-mers. By
+taking all these types of information into account for the neoantigen candidates, researchers will be
+able to make more informed decisions when deciding final peptide candidates for experiments, personalized
+cancer vaccines, or T cell therapies designed to target neoantigens.
+
+## Starting pVACview
+
+The pVACview R source code is distributed with every pVACseq run the in
+MHC_Class_I and/or MHC_Class_II subdirectories, depending on which prediction
+algorithms were run. For the HCC1395 pVACseq example run you did earlier, it
+can be started by running the following command in your Terminal:
+
+```{r, engine = 'bash', eval = FALSE}
+pvacview run ${PWD}/pVACtools_outputs/MHC_Class_I
+```
+
+This starts a process for the pVACview R shiny application. Do not close the
+terminal window or end this process. You can now open pVACview in your browser
+by navigating to [http://127.0.0.1:3333/](http://127.0.0.1:3333/).
+
+## Uploading pVACseq result data into pVACview
+
+The starting screen shows an upload form. You will want to upload the Class I
+aggregated.tsv report under "1. Neoantigen Candidate Aggregate Report (tsv
+required)". We generally recommend using Class I as the main report, as these
+are more robust than Class II. However, either can be uploaded here as long as
+the correct data type is selected under "Does this aggregate report file
+correspond to Class I or Class II prediction data?"
+
+Upload the matching Class I metrics.json file under "2. Neoantigen Candidate
+Metrics file (json required)". The Class II aggregated.tsv can now be uploaded
+as a supplementary file under "3. Additional Neoantigen Candidate Aggregate
+Report (tsv required)".
+
+This interface also optionally allows users to upload a gene-of-interest TSV
+file to, e.g. highlight variants on known cancer genes. We have provided such
+a TSV with your original HCC1395 downloaded data, called
+"cancer_census_hotspot_gene_list.tsv".
+
+After uploading all files, you can visualize the result by clicking on the
+"Visualize" button at the bottom of the page, or the "Visualize and Explore"
+tab in the sidebar.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "pVACview data upload interface."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_2")
+```
+
+## Aggregate Report of Best Candidates by Variant
+
+The main table in pVACview shows the best neoantigen candidate for each variant.
+It lists the gene and amino acid change of the variant as well as additional
+information about the best peptide and the best transcript coding for it. These
+include, from left to right, the transcript support level, the best-binding HLA
+allele, the mutated positions of the best peptide, any positions in the peptide
+where the amino acid might be problematic for manufacturing, and the total number
+of neo antigen candidates passing the binding affinity threshold set by the user.
+If a gene of interest list was uploaded, variants on those genes have their gene
+highlighted with a green border.
+
+Next, this table lists the IC50 peptide MHC binding affinity for both the mutant
+and the wild type. It also shows the percentile scores of the binding affinity values.
+For the mutant values, a heatmap coloring is applied to make it easier to visually
+identify well-binding peptides.
+
+The next few columns show the coverage and expression of the best transcript with
+a bar plot background to represent where specific values fall across the entire
+patient sample.
+
+The Tier column represents the tier assigned to the best peptide. The neoantigen
+candidates in this view were all sorted into the Pass tier but tiers such as Low
+Expression or Subclonal are applied to easily identify why a neo antigen candidate
+might be unsuitable for vaccine selection.
+
+The Ref Match column reflects whether or not the best peptide was found in the
+reference proteome which is undesired since such peptides are not novel and
+including them in a vaccine might lead to an auto immune response.
+
+Users are able to set a status for each candidate in the Evaluation column to mark
+them as Accept, Reject, or requiring further review.
+
+The Investigate button can be clicked to see more detail for a variant. This
+will update the lower panels with details for the selected variant.
 
 ```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Upon successfully uploading the relevant data files, you can explore the different aspects of your neoantigen candidates."}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g2491f283519_0_8")
+```
+
+For candidates not sorted into the Pass tier, red borders visually highlight the
+attributes failed by the candidate.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Neoantigen candidates are binned into tiers depending on their suitability for vaccine creation."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_8")
 ```
 
 ## Tour of the pVACview interface
