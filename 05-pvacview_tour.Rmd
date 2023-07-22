@@ -183,13 +183,13 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 
 When selecting a transcript set in the Variant Info panel, this panel will
 show details about the neoantigen candidates the transcripts in the set code
-for and as well as details on the transcripts itself.
+for and as well as details on the transcripts themselves.
 
 The Peptide Candidates from Selected Transcript Set tab shows a list of
 mutant and matched wildtype peptides and their IC50 binding
-affinity to the patient HLA alleles. Only neoantigen candidate were at least
+affinity to the patient HLA alleles. Only neoantigen candidates where at least
 one peptide-MHC binding prediction falls within the  `--aggregate-inclusion-threshold`
-will be shown in this table. For HLA alleles were the peptide is not
+will be shown in this table. For HLA alleles where the peptide is not
 well-binding the prediction details will show `X`. This table also shows the
 mutant position, whether or not the neoantigen candidate has any problematic
 positions, and whether or not it failed the anchor criteria. This helps in
@@ -280,8 +280,8 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 ## Adding Comments to Variants
 
 When reviewing neoantigen candidates in pVACseq, users are able to add
-comments one each variant, for example, describing what additional review is
-necessary. Please note, that comments are not saved until the "Update Comment
+comments on each variant, for example, describing what additional review is
+necessary. Please note that comments are not saved until the "Update Comment
 Section" button is pressed.
 
 
