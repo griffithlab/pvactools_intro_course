@@ -10,6 +10,9 @@ ottrpal::set_knitr_image_path()
 This chapter will cover:  
 
 - Introduction to the pVACview module
+- How to start pVACview
+- How to load your pVACseq data into pVACview
+- The pVACview user interface
 - Demo of the pVACview interface
 
 ## Introduction to the pVACview module
@@ -67,7 +70,9 @@ tab in the sidebar.
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_2")
 ```
 
-## Aggregate Report of Best Candidates by Variant
+## The pVACview User Interface
+
+### Aggregate Report of Best Candidates by Variant
 
 The main table in the Aggregate Report of Best Candidates by Variant panel
 shows the best neoantigen candidate for each variant.
@@ -115,7 +120,7 @@ attributes failed by the candidate.
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_8")
 ```
 
-## Variant Information
+### Variant Information
 
 The Variant Information panel shows more variant-level details of the selected
 neoantigen candidate.
@@ -133,7 +138,7 @@ green. This table shows the number of transcripts in each set, the number of
 well-binding peptides the transcripts in the set code for, and the total
 expression of all the transcripts in the set.
 
-The second tab shows the details for any reference matches of the neoantigen
+The second tab, titled Reference Matches, shows the details for any reference matches of the neoantigen
 candidate. It repeats information about the Best Peptide sequence, the amino acid
 change, the mutated position, and the gene for easy reference. The mutated
 positions are notated in red in the Best Peptide sequence and the Query
@@ -142,27 +147,58 @@ The Best Peptide subsequence is highlighted in yellow in the Query Sequence. For
 any 8mer subsequence of the query sequence, pVACtools looks for matches in the
 reference proteome. Any matches found are reported in the Hits table
 
-```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Variant Information tab shows more details for the selected variant."}
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Reference Matches tab shows details of reference matches of the neoantigen candidate."}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_20")
 ```
 
-The last tab shows the additional data if a Additional Neoantigen Candidate Aggregate
+The "Additional Data" tab shows the additional data for the variant if a Additional Neoantigen Candidate Aggregate
 Report was uploaded. It shows the Best Peptide and its information for this variant from the
 additional report. This can be used, e.g., when a Class I neoantigen candidate
 is a bad binder but all other metrics look good. Oftentimes this variant can
 be rescued by considering the best Class II neoantigen candidate instead.
 
-```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Variant Information tab shows more details for the selected variant."}
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Additional Data shows data from the Additional Aggregate Report for the variant."}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_26")
 ```
 
 The next section shows coverage and expression information as well as
 the genomic coordinates for the variant.
-
+ 
 The last section shows counts for how many peptides have been accepted,
 rejected, or marked for review. For most vaccines a certain minimum number of
 neoantigen candidates is desired so this panel makes it easy to review how
 many neoantigen candidates are still needed.
+
+### Transcript Set Detailed Data
+
+When selecting a transcript set in the Variant Info panel, this panel will
+show details about the neoantigen candidates the transcripts in the set code
+for and as well as details on the transcripts itself.
+
+The Peptide Candidates from Selected Transcript Set tab shows a list of
+mutant and matched wildtype peptides and their IC50 binding
+affinity to the patient HLA alleles. Only neoantigen candidate were at least
+opne peptide-MHC binding prediction falls within the  `--aggregate-inclusion-threshold`
+will be shown in this table. For HLA alleles were the peptide is not
+well-binding the prediction details will show `X`. This table also shows the
+mutant position, whether or not the neoantigen candidate has any problematic
+positions, and whether or not it failed the anchor criteria. This helps in
+determining whether a neoantigen candidate was deprioritized when selecting the
+Best Peptide. The Best Peptide is highlighted in green.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Transcript Set Detailed Data panel shows binding prediction details for the neoantigens the transcripts in the set code for."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_32")
+```
+
+The Transcripts in Set tabs shows details of the transcripts in the selected
+set such as the transcript Ensembl ID, the transcript expression, the
+transcript support level, the biotype, and the transcript length. This
+reflects the criteria used in determining the Best Transcript. The Best
+Transcript is highlighted in green.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Transcripts in Set tab shows details about the transcripts in the set."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_38")
+```
 
 ## Tour of the pVACview interface
 
