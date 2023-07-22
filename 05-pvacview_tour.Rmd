@@ -83,7 +83,7 @@ information about the best peptide and the best transcript coding for it. These
 include, from left to right, the transcript support level, the best-binding HLA
 allele, the mutated positions of the best peptide, any positions in the peptide
 where the amino acid might be problematic for manufacturing, and the total number
-of neo antigen candidates passing the binding affinity threshold set by the user.
+of neoantigen candidates passing the binding affinity threshold set by the user.
 If a gene of interest list was uploaded, variants on those genes have their gene
 highlighted with a green border.
 
@@ -98,7 +98,7 @@ patient sample.
 
 The Tier column represents the tier assigned to the best peptide. The neoantigen
 candidates in this view were all sorted into the Pass tier but tiers such as Low
-Expression or Subclonal are applied to easily identify why a neo antigen candidate
+Expression or Subclonal are applied to easily identify why a neoantigen candidate
 might be unsuitable for vaccine selection.
 
 The Ref Match column reflects whether or not the best peptide was found in the
