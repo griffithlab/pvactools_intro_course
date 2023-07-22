@@ -1,5 +1,5 @@
 
-# Tour of pVACview
+# Review Your Results in pVACview
 
 ```{r, include = FALSE}
 ottrpal::set_knitr_image_path()
@@ -7,13 +7,15 @@ ottrpal::set_knitr_image_path()
 
 ## Learning Objectives
 
-This chapter will cover:  
+This chapter will cover:
 
 - Introduction to the pVACview module
 - How to start pVACview
 - How to load your pVACseq data into pVACview
 - The pVACview user interface
-- Demo of the pVACview interface
+- How to re-tier results in pVACview
+- How to add comments to the variants in the report
+- How to export the reviewed results
 
 ## Introduction to the pVACview module
 
@@ -210,7 +212,7 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 
 ### Additional Peptide Information
 
-In the Additional Peptide Information panels, users can see more information
+In the Additional Peptide Information panel, users can see more information
 for the neoantigen candidate selected in the Transcript Set Detailed Data
 panel.
 
@@ -261,15 +263,39 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 
 ## Regenerate Tiers with Custom Parameters
 
+During review of your data it might become apparent that different tiering
+thresholds would've been more approriate. pVACview allows you to re-tier your
+data with custom parameters by adjusting the sliders and inputs in the
+"Advanced Options: Regenerate Tiering with different parameters" panel and
+pressing the "Recalculate Tiering with new parameters" button.
+
+The parameters that were used in the original pVACseq run can still be viewed
+in the "Original Parameters for Tiering" panel and the tiers can be reset to
+those parameters by pressing the "Reset to original parameters" button.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Users can re-tier the neoantigen candidates by adjusting the tiering thresholds."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_87")
+```
+
 ## Adding Comments to Variants
+
+When reviewing neoantigen candidates in pVACseq, users are able to add
+comments one each variant, for example, describing what additional review is
+necessary. Please note, that comments are not saved until the "Update Comment
+Section" button is pressed.
+
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Users can leave comments on each variant."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_93")
+```
 
 ## Exporting the Aggregated Table
 
-## Tour of the pVACview interface
+Once review of the neoantigen candidates has been completed, the results can
+be exported by switching to the Export interface via the sidebar. This will
+export the Aggregated Report with the updated Evaluation column and comments
+added. The report can be exported in either TSV or Excel format.
 
-Here is a brief tour of the [pVACview](https://pvactools.readthedocs.io/en/latest/pvacview.html){target="_blank"} interface:
- 
-```{r, echo=FALSE}
-knitr::include_url("https://www.youtube.com/embed/SMcXSV1cp1U")
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Users can leave comments on each variant."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_99")
 ```
-
