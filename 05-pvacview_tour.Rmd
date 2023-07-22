@@ -161,13 +161,21 @@ be rescued by considering the best Class II neoantigen candidate instead.
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_26")
 ```
 
-The next section shows coverage and expression information as well as
+The next section, "Variant & Gene Info", shows coverage and expression information as well as
 the genomic coordinates for the variant.
- 
-The last section shows counts for how many peptides have been accepted,
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Variant & Gene INfo section show coverage and expression information for the variant."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_75")
+```
+
+The last section, "Peptide Evaluation Overview", shows counts for how many peptides have been accepted,
 rejected, or marked for review. For most vaccines a certain minimum number of
 neoantigen candidates is desired so this panel makes it easy to review how
 many neoantigen candidates are still needed.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Peptide Evaluation Overview section shows how many neoantigen candidates have been accepted, rejected, marked for review, or are pending."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_80")
+```
 
 ### Transcript Set Detailed Data
 
@@ -198,6 +206,57 @@ Transcript is highlighted in green.
 
 ```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Transcripts in Set tab shows details about the transcripts in the set."}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_38")
+```
+
+### Additional Peptide Information
+
+In the Additional Peptide Information panels, users can see more information
+for the neoantigen candidate selected in the Transcript Set Detailed Data
+panel.
+
+The first tab, "IC50 Plot", shows violin plots of the predicted IC50 binding
+affinity for each prediction algorithm for both the neoantigen candidate and
+its matched wildtype peptide. This can be used to check concordance
+of predicitions between the different algorithms. It also allows for a
+detailed comparison between the mutant and wildtype predictions in addition to
+the median or lowest IC50 binding affinity used elsewhere. A solid line is used
+to represent the median score.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Additional Peptide Information panel shows more information for the peptide selected in the Transcript Set Detailed Data panel."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_44")
+```
+
+The %ile Plot tab shows a similar violin plot but for the predicted percentile
+scores as opposed to the IC50 binding affinity. A solid line is also used here
+to represent the median score.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The %ile Plot tab shows violin plots of the percentile score predicted by each algorithm."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_50")
+```
+
+The next tab, "Binding Data", shows the IC50 binding affinity and
+percentile score but in table format.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Binding Data tab shows a table of the IC50 binding affinity and percentile predicted by each algorithm."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_56")
+```
+
+The Elution Table tab shows the predicted elution scores and percentiles, if
+the appropriate prediction algorithm(s) were chosen.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Elution Table tab shows elution prediction scores and precentiles for the selected peptide."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_62")
+```
+
+Lastly, the Anchor Heatmap tab shows a heatmap overlayed over each neoantigen
+candidate from the selected transcript set. A darker color represents a higher
+probability that a position in the peptide is an anchor. Mutated positions are
+represented by red letters. More information
+about how to interpret the heatmap can be found in the graph on the right of this
+panel.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Anchor heatmaps show which positions in a peptide are likely to be anchors."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_68")
 ```
 
 ## Tour of the pVACview interface
