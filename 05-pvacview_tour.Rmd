@@ -69,7 +69,8 @@ ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCG
 
 ## Aggregate Report of Best Candidates by Variant
 
-The main table in pVACview shows the best neoantigen candidate for each variant.
+The main table in the Aggregate Report of Best Candidates by Variant panel
+shows the best neoantigen candidate for each variant.
 It lists the gene and amino acid change of the variant as well as additional
 information about the best peptide and the best transcript coding for it. These
 include, from left to right, the transcript support level, the best-binding HLA
@@ -113,6 +114,55 @@ attributes failed by the candidate.
 ```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Neoantigen candidates are binned into tiers depending on their suitability for vaccine creation."}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_8")
 ```
+
+## Variant Information
+
+The Variant Information panel shows more variant-level details of the selected
+neoantigen candidate.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Variant Information tab shows more details for the selected variant."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_14")
+```
+
+On the left is a three-tab section. The first tab, "Transcript Sets of Selected
+Variant", shows a list of transcript sets. pVACtools bins transcripts that code for
+the same set of neoantigen candidates into a set
+because the neoantigen-level information for all transcripts in a set will be
+identical. The transcript set containing the Best Peptide is highlighted in
+green. This table shows the number of transcripts in each set, the number of
+well-binding peptides the transcripts in the set code for, and the total
+expression of all the transcripts in the set.
+
+The second tab shows the details for any reference matches of the neoantigen
+candidate. It repeats information about the Best Peptide sequence, the amino acid
+change, the mutated position, and the gene for easy reference. The mutated
+positions are notated in red in the Best Peptide sequence and the Query
+Sequence. The Query Sequence is a longer sequence around the somatic mutation.
+The Best Peptide subsequence is highlighted in yellow in the Query Sequence. For
+any 8mer subsequence of the query sequence, pVACtools looks for matches in the
+reference proteome. Any matches found are reported in the Hits table
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Variant Information tab shows more details for the selected variant."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_20")
+```
+
+The last tab shows the additional data if a Additional Neoantigen Candidate Aggregate
+Report was uploaded. It shows the Best Peptide and its information for this variant from the
+additional report. This can be used, e.g., when a Class I neoantigen candidate
+is a bad binder but all other metrics look good. Oftentimes this variant can
+be rescued by considering the best Class II neoantigen candidate instead.
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Variant Information tab shows more details for the selected variant."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_26")
+```
+
+The next section shows coverage and expression information as well as
+the genomic coordinates for the variant.
+
+The last section shows counts for how many peptides have been accepted,
+rejected, or marked for review. For most vaccines a certain minimum number of
+neoantigen candidates is desired so this panel makes it easy to review how
+many neoantigen candidates are still needed.
 
 ## Tour of the pVACview interface
 
