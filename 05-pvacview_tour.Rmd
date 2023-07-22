@@ -186,7 +186,7 @@ for and as well as details on the transcripts itself.
 The Peptide Candidates from Selected Transcript Set tab shows a list of
 mutant and matched wildtype peptides and their IC50 binding
 affinity to the patient HLA alleles. Only neoantigen candidate were at least
-opne peptide-MHC binding prediction falls within the  `--aggregate-inclusion-threshold`
+one peptide-MHC binding prediction falls within the  `--aggregate-inclusion-threshold`
 will be shown in this table. For HLA alleles were the peptide is not
 well-binding the prediction details will show `X`. This table also shows the
 mutant position, whether or not the neoantigen candidate has any problematic
@@ -217,7 +217,7 @@ panel.
 The first tab, "IC50 Plot", shows violin plots of the predicted IC50 binding
 affinity for each prediction algorithm for both the neoantigen candidate and
 its matched wildtype peptide. This can be used to check concordance
-of predicitions between the different algorithms. It also allows for a
+of predictions between the different algorithms. It also allows for a
 detailed comparison between the mutant and wildtype predictions in addition to
 the median or lowest IC50 binding affinity used elsewhere. A solid line is used
 to represent the median score.
@@ -258,6 +258,12 @@ panel.
 ```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "The Anchor heatmaps show which positions in a peptide are likely to be anchors."}
 ottrpal::include_slide("https://docs.google.com/presentation/d/1uz39zaObDGKhEVCGzO0JO35CTbC0oRAM0mxgLcMAA9Y/edit#slide=id.g25ad9ce8c9b_0_68")
 ```
+
+## Regenerate Tiers with Custom Parameters
+
+## Adding Comments to Variants
+
+## Exporting the Aggregated Table
 
 ## Tour of the pVACview interface
 
