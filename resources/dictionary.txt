@@ -8,6 +8,7 @@ BLASTp
 Bloomberg
 Bookdown
 bioinformatics
+biotype
 CHROM
 CLI
 ClinVar
@@ -25,6 +26,8 @@ Dockerfile
 Dockerhub
 deprioritized
 dropdown
+Elution
+elution
 epitope
 epitopes
 Ensembl
@@ -46,12 +49,14 @@ HCC
 HLA
 histocompatibility
 homozygous
+hotspot
 https
 http
 IC
 IEDB
 ITCR
 ITN
+ile
 immunotherapies
 immunotherapy
 isoform
