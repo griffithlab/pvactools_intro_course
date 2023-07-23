@@ -1,8 +1,10 @@
 url	chapt_title	img_path
 http://course.pvactools.org/no_toc/index.html	About this Course	resources/chapt_screen_images/index.png
 http://course.pvactools.org/no_toc/introduction.html	1 Introduction	resources/chapt_screen_images/introduction.png
-http://course.pvactools.org/no_toc/running-pvactools.html	2 Running pVACtools	resources/chapt_screen_images/running-pvactools.png
-http://course.pvactools.org/no_toc/tour-of-pvacview.html	3 Tour of pVACview	resources/chapt_screen_images/tour-of-pvacview.png
-http://course.pvactools.org/no_toc/conclusions.html	4 Conclusions	resources/chapt_screen_images/conclusions.png
+http://course.pvactools.org/no_toc/prerequisites.html	2 Prerequisites	resources/chapt_screen_images/prerequisites.png
+http://course.pvactools.org/no_toc/running-pvactools.html	3 Running pVACtools	resources/chapt_screen_images/running-pvactools.png
+http://course.pvactools.org/no_toc/understanding-pvactools-outputs.html	4 Understanding pVACtools outputs	resources/chapt_screen_images/understanding-pvactools-outputs.png
+http://course.pvactools.org/no_toc/tour-of-pvacview.html	5 Tour of pVACview	resources/chapt_screen_images/tour-of-pvacview.png
+http://course.pvactools.org/no_toc/conclusions.html	6 Conclusions	resources/chapt_screen_images/conclusions.png
 http://course.pvactools.org/no_toc/about-the-authors.html	About the Authors	resources/chapt_screen_images/about-the-authors.png
-http://course.pvactools.org/no_toc/references.html	5 References	resources/chapt_screen_images/references.png
+http://course.pvactools.org/no_toc/references.html	7 References	resources/chapt_screen_images/references.png
