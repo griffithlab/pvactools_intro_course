@@ -30,7 +30,7 @@
   
   <link rel="shortcut icon" href="assets/ITN_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="running-pvactools.html"/>
-<link rel="next" href="tour-of-pvacview.html"/>
+<link rel="next" href="review-your-results-in-pvacview.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -206,11 +206,22 @@ div.csl-indent {
 <li class="chapter" data-level="4.4.2" data-path="understanding-pvactools-outputs.html"><a href="understanding-pvactools-outputs.html#tier-and-tiering-criteria"><i class="fa fa-check"></i><b>4.4.2</b> Tier and Tiering Criteria</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html"><i class="fa fa-check"></i><b>5</b> Tour of pVACview</a>
+<li class="chapter" data-level="5" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html"><i class="fa fa-check"></i><b>5</b> Review Your Results in pVACview</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="5.2" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#introduction-to-the-pvacview-module"><i class="fa fa-check"></i><b>5.2</b> Introduction to the pVACview module</a></li>
-<li class="chapter" data-level="5.3" data-path="tour-of-pvacview.html"><a href="tour-of-pvacview.html#tour-of-the-pvacview-interface"><i class="fa fa-check"></i><b>5.3</b> Tour of the pVACview interface</a></li>
+<li class="chapter" data-level="5.1" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#learning-objectives-3"><i class="fa fa-check"></i><b>5.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#introduction-to-the-pvacview-module"><i class="fa fa-check"></i><b>5.2</b> Introduction to the pVACview module</a></li>
+<li class="chapter" data-level="5.3" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#starting-pvacview"><i class="fa fa-check"></i><b>5.3</b> Starting pVACview</a></li>
+<li class="chapter" data-level="5.4" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#uploading-pvacseq-result-data-into-pvacview"><i class="fa fa-check"></i><b>5.4</b> Uploading pVACseq result data into pVACview</a></li>
+<li class="chapter" data-level="5.5" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#the-pvacview-user-interface"><i class="fa fa-check"></i><b>5.5</b> The pVACview User Interface</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#aggregate-report-of-best-candidates-by-variant"><i class="fa fa-check"></i><b>5.5.1</b> Aggregate Report of Best Candidates by Variant</a></li>
+<li class="chapter" data-level="5.5.2" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#variant-information"><i class="fa fa-check"></i><b>5.5.2</b> Variant Information</a></li>
+<li class="chapter" data-level="5.5.3" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#transcript-set-detailed-data"><i class="fa fa-check"></i><b>5.5.3</b> Transcript Set Detailed Data</a></li>
+<li class="chapter" data-level="5.5.4" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#additional-peptide-information"><i class="fa fa-check"></i><b>5.5.4</b> Additional Peptide Information</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#regenerate-tiers-with-custom-parameters"><i class="fa fa-check"></i><b>5.6</b> Regenerate Tiers with Custom Parameters</a></li>
+<li class="chapter" data-level="5.7" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#adding-comments-to-variants"><i class="fa fa-check"></i><b>5.7</b> Adding Comments to Variants</a></li>
+<li class="chapter" data-level="5.8" data-path="review-your-results-in-pvacview.html"><a href="review-your-results-in-pvacview.html#exporting-the-aggregated-table"><i class="fa fa-check"></i><b>5.8</b> Exporting the Aggregated Table</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a>
 <ul>
@@ -346,9 +357,9 @@ are not just artifacts and that the genes are actually expressed in the
 patient’s RNA.</p>
 <p>For pVACseq, this generally relies on your VCF being annotated with coverage
 and expression data. In our example, the VCF has already been annotated with
-this data. For more information about how to add coverage and expression data
-to your own VCFs, please see <a href="https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/readcounts.html">here</a>
-and <a href="https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/expression.html">here</a>.
+this data. For more information about how to add <a href="https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/readcounts.html">coverage</a>
+and <a href="https://pvactools.readthedocs.io/en/latest/pvacseq/input_file_prep/expression.html">expression data</a>
+to your own VCFs, please see our docs.
 Additionally, filtering on the normal DNA depth and variant allele frequency
 (VAF) requires your VCF to be a tumor-normal sample VCF and the normal sample
 to be identifies in your pVACseq run using the <code>--normal-sample-name</code>
@@ -380,7 +391,7 @@ parsed from the <code>--starfusion-file</code>, when provided. This is reported 
 </div>
 <div id="transcript-support-level-filter" class="section level3" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> Transcript Support Level Filter</h3>
-<p>The Transcript Support Level (TSL) Filter, removes neoantigen candidates for
+<p>The Transcript Support Level (TSL) Filter removes neoantigen candidates for
 transcripts with a high TSL, as defined <a href="https://grch37.ensembl.org/info/genome/genebuild/transcript_quality_tags.html#tsl">by Ensembl</a>.
 The cutoff for this filter is set by the <code>--maximum-transcript-support-level</code>
 parameter. Transcripts with a TSL of NA will always be filtered out.</p>
@@ -394,16 +405,16 @@ and the TSL filter will skip those variants.</p>
 <p>The Top Score Filter will attempt to determine the best neoantigen candidate
 for each variants.</p>
 <p>For pVACseq it works as follows. Given a set of neoantigen candidates for a
-variant we first group the transcripts into set where all transcripts in a set
+variant we first group the transcripts into sets where all transcripts in a set
 code for the same set of neoantigen candidates. For each transcript set we then
 determine the best neoantigen candidate as follows:</p>
 <ul>
 <li>Pick all neoantigens with a variant transcript that have a protein_coding Biotype</li>
 <li>Of the remaining candidates, pick the ones with a variant transcript having a
 TSL less then the <code>--maximum-transcript-support-level</code>.</li>
-<li>Of the remaining candidates, pick the entries with no Problematic Positions</li>
+<li>Of the remaining candidates, pick the entries with no Problematic Positions.</li>
 <li>Of the remaining candidates, pick the ones passing the Anchor Criteria (explained in
-more detail further below)</li>
+more detail further below).</li>
 <li>Of the remaining candidates, pick the one with the lowest MT IC50 Score (Median or Best
 depending on the <code>--top-score-metric</code>), lowest TSL, and longest transcript.</li>
 </ul>
@@ -430,10 +441,10 @@ are included in creating this report.</p>
 <h3><span class="header-section-number">4.4.1</span> Determining the Best Transcript and Best Peptide of a Variant</h3>
 <p>In pVACseq, for each variant, all neoantigen candidates meeting the <code>--aggregate-inclusion-threshold</code> are evaluated as follows:</p>
 <ul>
-<li>Pick all entries with a variant transcript that have a protein_coding Biotype</li>
-<li>Of the remaining entries, pick the ones with a variant transcript having a Transcript Support Level &lt;= <code>--maximum-transcript-support-level</code></li>
-<li>Of the remaining entries, pick the entries with no Problematic Positions</li>
-<li>Of the remaining entries, pick the ones passing the Anchor Criteria (see Criteria Details section below)</li>
+<li>Pick all entries with a variant transcript that have a protein_coding Biotype.</li>
+<li>Of the remaining entries, pick the ones with a variant transcript having a Transcript Support Level &lt;= <code>--maximum-transcript-support-level</code>.</li>
+<li>Of the remaining entries, pick the entries with no Problematic Positions.</li>
+<li>Of the remaining entries, pick the ones passing the Anchor Criteria (see Criteria Details section below).</li>
 <li>Of the remaining entries, pick the one with the lowest MT IC50 score( Median or Best
 depending on the <code>--top-score-metric</code>), lowest Transcript Support Level, and longest transcript.</li>
 </ul>
@@ -620,7 +631,7 @@ criteria. These criteria and the available tiers differ from tool to tool.</p>
         </div>
       </div>
 <a href="running-pvactools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tour-of-pvacview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="review-your-results-in-pvacview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
