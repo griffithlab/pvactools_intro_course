@@ -8,7 +8,7 @@ This course has been developed recently (Summer 2023). We welcome any feedback a
 ## Motivation
 
 Identification of neoantigens is a critical step in predicting response to checkpoint blockade therapy and design of personalized cancer vaccines.
-This is a cross-disciplinary challenge, involving genomics, proteomics, immunology, and computational approaches. We have built a computational
+This is a cross-disciplinary challenge, which involves genomics, proteomics, immunology, and computational approaches. We have built a computational
 framework called pVACtools that, when paired with a well-established genomics pipeline, produces an end-to-end solution for neoantigen characterization.
 pVACtools supports identification of altered peptides from different mechanisms, including point mutations, in-frame and frameshift insertions and deletions,
 and gene fusions. Prediction of peptide:MHC binding is accomplished by supporting an ensemble of MHC Class I and II binding algorithms within a framework
